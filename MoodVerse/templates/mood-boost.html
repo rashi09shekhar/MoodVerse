@@ -1,0 +1,344 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Mood Boost 🌱 | MoodVerse</title>
+<link rel="stylesheet" href="{% static 'moodverse/style.css' %}">
+</head>
+
+
+<body class="mood-boost-page">
+
+
+    <!-- =================================================
+                        NAVBAR
+    ================================================= -->
+
+    <header class="navbar">
+
+        <h1>
+            🌈 MoodVerse
+        </h1>
+
+        <nav>
+
+            <a href="/home/">
+                Home
+            </a>
+
+            <a href="/mood/">
+                Mood
+            </a>
+
+            <a href="/dashboard/">
+                Dashboard
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =================================================
+                    HERO SECTION
+    ================================================= -->
+
+    <section class="boost-hero">
+
+        <div class="boost-hero-icon">
+            🌱
+        </div>
+
+        <h2>
+            Tiny Steps, Big Difference
+        </h2>
+
+        <p>
+            You don't have to fix everything at once.
+            Choose one tiny thing and take a moment
+            for yourself. 💗
+        </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+                    PROGRESS SECTION
+    ================================================= -->
+
+    <section class="progress-section">
+
+        <div class="progress-card">
+
+            <div class="progress-header">
+
+                <div>
+
+                    <h3>
+                        🌸 Your Tiny Steps
+                    </h3>
+
+                    <p>
+                        Small actions count.
+                    </p>
+
+                </div>
+
+                <div class="progress-count">
+
+                    <span id="completedCount">
+                        0
+                    </span>
+
+                    /
+                    
+                    <span id="totalCount">
+                        0
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div
+                    id="progressFill"
+                    class="progress-fill">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+                    TINY STEPS
+    ================================================= -->
+
+    <section class="tiny-steps-section">
+
+        <div class="section-title">
+
+            <h2>
+                💗 Things You Can Try
+            </h2>
+
+            <p>
+                Pick anything that feels manageable.
+                There is no pressure.
+            </p>
+
+        </div>
+
+
+        <!-- JavaScript creates the tasks here -->
+
+        <div
+            id="tinyStepsGrid"
+            class="tiny-steps-grid">
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+                    POP THE STRESS
+    ================================================= -->
+
+    <section class="stress-game-section">
+
+        <div class="game-heading">
+
+            <div class="game-heading-icon">
+                🎈
+            </div>
+
+            <h2>
+                Need a Quick Break?
+            </h2>
+
+            <p>
+                Sometimes you just need to pause.
+                Try a tiny game and pop some stress away. 💗
+            </p>
+
+        </div>
+
+
+        <!-- GAME CARD -->
+
+        <div class="stress-game-card">
+
+            <div class="stress-game-emoji">
+                🎈
+            </div>
+
+            <h3>
+                Pop the Stress
+            </h3>
+
+            <p>
+                Pop as many bubbles as you can
+                before the timer runs out!
+            </p>
+
+
+            <div class="game-features">
+
+                <span>
+                    🎈 Pop bubbles
+                </span>
+
+                <span>
+                    ⭐ Earn points
+                </span>
+
+                <span>
+                    ⏱️ 20 seconds
+                </span>
+
+            </div>
+
+
+            <a
+                href="/pop-stress/"
+                class="play-game-button"
+            >
+                🎮 Play Now
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+                    AFTER TASK FEELING
+    ================================================= -->
+
+    <section class="feeling-section">
+
+        <div class="feeling-card">
+
+            <h2>
+                🌸 How are you feeling now?
+            </h2>
+
+            <p>
+                You don't have to feel completely better.
+                Even a tiny change matters.
+            </p>
+
+
+            <div class="feeling-buttons">
+
+                <button
+                    type="button"
+                    onclick="feelingNow('better')"
+                >
+                    🌸 A little better
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="feelingNow('same')"
+                >
+                    💗 About the same
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="feelingNow('low')"
+                >
+                    💙 Still feeling low
+                </button>
+
+            </div>
+
+
+            <p
+                id="feelingMessage"
+                class="feeling-message">
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+                    JOURNAL LINK
+    ================================================= -->
+
+    <section class="journal-boost-section">
+
+        <div class="journal-boost-card">
+
+            <div class="journal-icon">
+                📖
+            </div>
+
+            <h2>
+                Want to let it out?
+            </h2>
+
+            <p>
+                Write down what's on your mind.
+                Sometimes putting feelings into words
+                can make things feel a little lighter.
+            </p>
+
+            <a
+                href="/journal/"
+                class="journal-button"
+            >
+                📖 Open Journal
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+                        FOOTER
+    ================================================= -->
+
+    <footer>
+
+        Made with 💕 by MoodVerse
+
+    </footer>
+
+
+
+    <!-- =================================================
+                    JAVASCRIPT
+    ================================================= -->
+<script src="{% static 'moodverse/script.js' %}"></script>
+
+</body>
+
+</html>

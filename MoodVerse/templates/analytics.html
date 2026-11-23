@@ -1,0 +1,364 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mood Analytics 📈</title>
+
+    <link rel="stylesheet" href="{% static 'moodverse/style.css' %}">
+
+</head>
+
+
+<body class="analytics-page">
+
+
+    <!-- =================================================
+                    NAVBAR
+    ================================================== -->
+
+    <header class="navbar">
+
+        <h1>
+            🌈 MoodVerse
+        </h1>
+
+
+        <nav>
+
+            <a href="/home/">
+                Home
+            </a>
+
+            <a href="/dashboard/">
+                Dashboard
+            </a>
+
+            <a href="/mood/">
+                Mood
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =================================================
+                    ANALYTICS HERO
+    ================================================== -->
+
+    <section class="analytics-hero">
+
+        <h2>
+            📈 Your Mood Journey
+        </h2>
+
+        <p>
+            Take a look at your emotional patterns and see
+            how your mood changes over time.
+        </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+                    MOOD OVERVIEW
+    ================================================== -->
+
+    <section class="analytics-overview">
+
+
+        <div class="analytics-card">
+
+            <div class="analytics-icon">
+                😊
+            </div>
+
+            <div class="analytics-content">
+
+                <h3>
+                    Happiness
+                </h3>
+
+                <p>
+                    Your positive moments
+                </p>
+
+                <div class="analytics-bar">
+
+                    <div class="analytics-bar-fill happy-fill"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="analytics-card">
+
+            <div class="analytics-icon">
+                😌
+            </div>
+
+            <div class="analytics-content">
+
+                <h3>
+                    Calmness
+                </h3>
+
+                <p>
+                    Your peaceful moments
+                </p>
+
+                <div class="analytics-bar">
+
+                    <div class="analytics-bar-fill calm-fill"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="analytics-card">
+
+            <div class="analytics-icon">
+                😢
+            </div>
+
+            <div class="analytics-content">
+
+                <h3>
+                    Sadness
+                </h3>
+
+                <p>
+                    Days you needed comfort
+                </p>
+
+                <div class="analytics-bar">
+
+                    <div class="analytics-bar-fill sad-fill"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+                    CALENDAR SECTION
+    ================================================== -->
+
+    <section class="mood-calendar-section">
+
+
+        <div class="calendar-title">
+
+            <span>
+                📅
+            </span>
+
+            <h2>
+                Your Mood Calendar
+            </h2>
+
+            <p>
+                One mood. One day. Your emotional journey.
+            </p>
+
+        </div>
+
+
+
+        <div class="calendar-card">
+
+
+            <!-- MONTH HEADER -->
+
+            <div class="calendar-header">
+
+                <button
+                    onclick="previousMonth()"
+                    aria-label="Previous month">
+
+                    ◀
+
+                </button>
+
+
+                <h2 id="calendar-month">
+                    September 2026
+                </h2>
+
+
+                <button
+                    onclick="nextMonth()"
+                    aria-label="Next month">
+
+                    ▶
+
+                </button>
+
+            </div>
+
+
+
+            <!-- WEEKDAYS -->
+
+            <div class="calendar-weekdays">
+
+                <div>
+                    Sun
+                </div>
+
+                <div>
+                    Mon
+                </div>
+
+                <div>
+                    Tue
+                </div>
+
+                <div>
+                    Wed
+                </div>
+
+                <div>
+                    Thu
+                </div>
+
+                <div>
+                    Fri
+                </div>
+
+                <div>
+                    Sat
+                </div>
+
+            </div>
+
+
+
+            <!-- DAYS -->
+
+            <div
+                class="calendar-days"
+                id="calendar-days">
+
+            </div>
+
+
+
+            <!-- LEGEND -->
+
+            <div class="mood-legend">
+
+                <span class="legend happy-legend">
+                    💛 Happy
+                </span>
+
+                <span class="legend sad-legend">
+                    💙 Sad
+                </span>
+
+                <span class="legend angry-legend">
+                    ❤️ Angry
+                </span>
+
+                <span class="legend calm-legend">
+                    💜 Calm
+                </span>
+
+                <span class="legend excited-legend">
+                    🩷 Excited
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+        <!-- =================================================
+                    MEMORY POPUP
+        ================================================== -->
+
+        <div
+            id="memory-popup"
+            class="memory-popup">
+
+            <div class="memory-popup-box">
+
+                <button
+                    class="memory-close"
+                    onclick="closeMemoryPopup()"
+                    aria-label="Close">
+
+                    ×
+
+                </button>
+
+
+                <div
+                    id="memory-popup-content"
+                    class="memory-popup-content">
+
+                </div>
+
+
+                <button
+                    class="memory-close-btn"
+                    onclick="closeMemoryPopup()">
+
+                    Close 💗
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+    <!-- =================================================
+                    FOOTER
+    ================================================== -->
+
+    <footer>
+
+        <p>
+            Made with 💜 by MoodVerse
+        </p>
+
+    </footer>
+
+
+
+    <!-- =================================================
+                    JAVASCRIPT
+    ================================================== -->
+
+    <script src="{% static 'moodverse/script.js' %}"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,357 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Choose Your Mood 💭
+</title>
+<link rel="stylesheet" href="{% static 'moodverse/style.css' %}">
+
+</head>
+
+
+<body class="mood-page">
+
+
+<header class="navbar">
+
+<h1>
+🌈 MoodVerse
+</h1>
+
+
+<nav>
+
+<a href="/home/">
+Home
+</a>
+
+
+<a href="/dashboard/">
+Dashboard
+</a>
+
+</nav>
+
+</header>
+
+
+
+<section class="hero">
+
+
+<h2>
+How are you feeling today? 💭
+</h2>
+
+
+<p>
+Choose your mood and MoodVerse will create a personalised experience for you.
+</p>
+
+
+
+<div class="mood-buttons">
+
+
+<button onclick="changeMood('happy')">
+Happy
+</button>
+
+
+<button onclick="changeMood('sad')">
+Sad
+</button>
+
+
+<button onclick="changeMood('angry')">
+Angry
+</button>
+
+
+<button onclick="changeMood('calm')">
+Calm
+</button>
+
+
+<button onclick="changeMood('excited')">
+Excited
+</button>
+
+
+
+<a href="/mood-check/">
+
+<button class="check-mood-button">
+
+🤔 I'm Not Sure
+
+</button>
+
+</a>
+
+
+</div>
+
+</section>
+
+
+
+
+
+<section class="mood-container">
+
+
+
+<div class="mood happy">
+
+<span>
+😊
+</span>
+
+<h3>
+Happy
+</h3>
+
+<p>
+Positive and joyful
+</p>
+
+</div>
+
+
+
+
+<div class="mood calm">
+
+<span>
+😌
+</span>
+
+<h3>
+Calm
+</h3>
+
+<p>
+Peaceful and relaxed
+</p>
+
+</div>
+
+
+
+
+<div class="mood sad">
+
+<span>
+😢
+</span>
+
+<h3>
+Sad
+</h3>
+
+<p>
+Need comfort
+</p>
+
+</div>
+
+
+
+
+<div class="mood angry">
+
+<span>
+😡
+</span>
+
+<h3>
+Angry
+</h3>
+
+<p>
+Need relaxation
+</p>
+
+</div>
+
+
+
+
+<div class="mood excited">
+
+<span>
+🤩
+</span>
+
+<h3>
+Excited
+</h3>
+
+<p>
+Full of energy
+</p>
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+<section class="features">
+
+
+
+<div class="card">
+
+<h2>
+📖 Journal
+</h2>
+
+<p>
+Write how you feel.
+</p>
+
+
+<a href="/journal/">
+
+<button>
+Open Journal
+</button>
+
+</a>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+🧘 Breathing
+</h2>
+
+
+<p>
+Take a one minute calming session.
+</p>
+
+
+<a href="/breathing/">
+
+<button>
+Start Session
+</button>
+
+</a>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h2>
+🎵 Music
+</h2>
+
+
+<p>
+Listen according to your mood.
+</p>
+
+
+<button
+type="button"
+onclick="playMoodMusic()">
+
+Listen to Music
+
+</button>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+<script src="{% static 'moodverse/script.js' %}"></script>
+
+
+
+<script>
+
+function playMoodMusic() {
+
+    const mood =
+        localStorage.getItem("moodverseMood");
+
+
+    if (!mood) {
+
+        alert(
+            "Please choose your mood first 💭"
+        );
+
+        return;
+
+    }
+
+
+    const moodMusic = {
+
+        happy:
+        "https://open.spotify.com/playlist/37i9dQZF1DXdPec7aLTmlC",
+
+        sad:
+        "https://open.spotify.com/playlist/44tRfteJJzAmUONSiA56bQ",
+
+        angry:
+        "https://open.spotify.com/playlist/0ldH4ltKERLCOH3zsEcQm0",
+
+        calm:
+        "https://open.spotify.com/playlist/0ldH4ltKERLCOH3zsEcQm0",
+
+        excited:
+        "https://open.spotify.com/playlist/44tRfteJJzAmUONSiA56bQ"
+
+    };
+
+
+    window.open(
+        moodMusic[mood],
+        "_blank"
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,5632 @@
+/* =========================================================
+                    MOODVERSE
+              GLOBAL MOOD THEME SYSTEM
+========================================================= */
+
+
+/* =========================================================
+                    GOOGLE FONT
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+
+/* =========================================================
+                    COLOR VARIABLES
+========================================================= */
+
+:root {
+
+    /* Default Theme = Pastel Purple */
+
+    --main-color: #c58acb;
+
+    --second-color: #e9a8c7;
+
+    --background-color: #fdf4fa;
+
+    --gradient-start: #fff7fb;
+
+    --gradient-end: #f7effb;
+
+    --surface-color: rgba(255, 255, 255, 0.72);
+
+    --surface-strong: rgba(255, 255, 255, 0.88);
+
+    --text-color: #5d4662;
+
+    --light-text: #806b84;
+
+    --border-color: rgba(197, 138, 203, 0.25);
+
+    --shadow-color: rgba(181, 126, 188, 0.20);
+
+    --glow-color: rgba(233, 168, 199, 0.35);
+
+    --input-background: rgba(255, 255, 255, 0.90);
+
+    --soft-background: rgba(255, 255, 255, 0.50);
+
+}
+
+
+/* =========================================================
+                    RESET
+========================================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    margin: 0;
+
+    color: var(--text-color);
+
+    background:
+
+        radial-gradient(
+            circle at 10% 10%,
+            var(--glow-color),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 85%,
+            var(--shadow-color),
+            transparent 32%
+        ),
+
+        linear-gradient(
+            135deg,
+            var(--gradient-start),
+            var(--gradient-end)
+        );
+
+    background-attachment: fixed;
+
+    overflow-x: hidden;
+
+    transition:
+
+        background 0.7s ease,
+
+        color 0.5s ease;
+
+}
+
+
+a {
+
+    text-decoration: none;
+
+}
+
+
+/* =========================================================
+                    MOOD THEMES
+========================================================= */
+
+
+/* ---------------------------------------------------------
+                        HAPPY
+                    Pastel Yellow
+--------------------------------------------------------- */
+
+body.happy-theme {
+
+    --main-color: #f3c95b;
+
+    --second-color: #ffe7a3;
+
+    --background-color: #fffcef;
+
+    --gradient-start: #fffdf4;
+
+    --gradient-end: #fff5d6;
+
+    --surface-color: rgba(255, 255, 255, 0.76);
+
+    --surface-strong: rgba(255, 255, 255, 0.90);
+
+    --text-color: #66552e;
+
+    --light-text: #8a7a50;
+
+    --border-color: rgba(243, 201, 91, 0.30);
+
+    --shadow-color: rgba(220, 175, 60, 0.20);
+
+    --glow-color: rgba(255, 231, 163, 0.45);
+
+    --input-background: rgba(255, 255, 255, 0.92);
+
+    --soft-background: rgba(255, 247, 214, 0.65);
+
+}
+
+
+/* ---------------------------------------------------------
+                         SAD
+                    Pastel Blue
+--------------------------------------------------------- */
+
+body.sad-theme {
+
+    --main-color: #8fbce6;
+
+    --second-color: #b8ddf5;
+
+    --background-color: #eef8ff;
+
+    --gradient-start: #f5fbff;
+
+    --gradient-end: #e5f3fc;
+
+    --surface-color: rgba(255, 255, 255, 0.76);
+
+    --surface-strong: rgba(255, 255, 255, 0.90);
+
+    --text-color: #40566b;
+
+    --light-text: #71879a;
+
+    --border-color: rgba(143, 188, 230, 0.30);
+
+    --shadow-color: rgba(100, 160, 210, 0.20);
+
+    --glow-color: rgba(184, 221, 245, 0.40);
+
+    --input-background: rgba(255, 255, 255, 0.92);
+
+    --soft-background: rgba(229, 243, 252, 0.65);
+
+}
+
+
+/* ---------------------------------------------------------
+                        ANGRY
+                    Pastel Red
+--------------------------------------------------------- */
+
+body.angry-theme {
+
+    --main-color: #e98282;
+
+    --second-color: #f5b0a8;
+
+    --background-color: #fff3f2;
+
+    --gradient-start: #fff8f7;
+
+    --gradient-end: #ffe9e7;
+
+    --surface-color: rgba(255, 255, 255, 0.76);
+
+    --surface-strong: rgba(255, 255, 255, 0.90);
+
+    --text-color: #633f42;
+
+    --light-text: #89676a;
+
+    --border-color: rgba(233, 130, 130, 0.30);
+
+    --shadow-color: rgba(210, 100, 100, 0.20);
+
+    --glow-color: rgba(245, 176, 168, 0.42);
+
+    --input-background: rgba(255, 255, 255, 0.92);
+
+    --soft-background: rgba(255, 233, 231, 0.65);
+
+}
+
+
+/* ---------------------------------------------------------
+                         CALM
+                    Pastel Purple
+--------------------------------------------------------- */
+
+body.calm-theme {
+
+    --main-color: #b39bd5;
+
+    --second-color: #d9c8ee;
+
+    --background-color: #f8f2fb;
+
+    --gradient-start: #fcf9ff;
+
+    --gradient-end: #f1e9fa;
+
+    --surface-color: rgba(255, 255, 255, 0.76);
+
+    --surface-strong: rgba(255, 255, 255, 0.90);
+
+    --text-color: #5d5069;
+
+    --light-text: #7d7187;
+
+    --border-color: rgba(179, 155, 213, 0.28);
+
+    --shadow-color: rgba(179, 155, 213, 0.22);
+
+    --glow-color: rgba(217, 200, 238, 0.40);
+
+    --input-background: rgba(255, 255, 255, 0.92);
+
+    --soft-background: rgba(241, 233, 250, 0.65);
+
+}
+
+
+/* ---------------------------------------------------------
+                       EXCITED
+                 Pink + Purple
+--------------------------------------------------------- */
+
+body.excited-theme {
+
+    --main-color: #e58abb;
+
+    --second-color: #a783d5;
+
+    --background-color: #fff1fa;
+
+    --gradient-start: #fff8fc;
+
+    --gradient-end: #f4eafa;
+
+    --surface-color: rgba(255, 255, 255, 0.76);
+
+    --surface-strong: rgba(255, 255, 255, 0.90);
+
+    --text-color: #63445e;
+
+    --light-text: #826a7d;
+
+    --border-color: rgba(229, 138, 187, 0.30);
+
+    --shadow-color: rgba(229, 138, 187, 0.23);
+
+    --glow-color: rgba(167, 131, 213, 0.34);
+
+    --input-background: rgba(255, 255, 255, 0.92);
+
+    --soft-background: rgba(255, 241, 250, 0.65);
+
+}
+
+
+/* =========================================================
+                    NAVBAR
+========================================================= */
+
+.navbar {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 25px 60px;
+
+    background:
+
+        rgba(255, 255, 255, 0.58);
+
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+
+    border-bottom:
+
+        1px solid var(--border-color);
+
+    box-shadow:
+
+        0 5px 25px var(--shadow-color);
+
+    transition:
+
+        background 0.6s ease,
+
+        border-color 0.6s ease,
+
+        box-shadow 0.6s ease;
+
+}
+
+
+.navbar h1 {
+
+    font-size: 35px;
+
+    font-weight: 800;
+
+    color: var(--main-color);
+
+    transition: color 0.5s ease;
+
+}
+
+
+nav a {
+
+    margin: 15px;
+
+    color: var(--text-color);
+
+    font-weight: 600;
+
+    transition: color 0.3s ease;
+
+}
+
+
+nav a:hover {
+
+    color: var(--main-color);
+
+}
+
+
+/* =========================================================
+                    BUTTONS
+========================================================= */
+
+button {
+
+    border: none;
+
+    padding: 15px 35px;
+
+    border-radius: 50px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--second-color),
+            var(--main-color)
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+
+        transform 0.3s ease,
+
+        box-shadow 0.3s ease,
+
+        background 0.5s ease;
+
+}
+
+
+button:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+
+        0 12px 28px var(--shadow-color);
+
+}
+
+
+/* =========================================================
+                    GLASS CARDS
+========================================================= */
+
+.card {
+
+    width: 300px;
+
+    padding: 35px;
+
+    background:
+
+        var(--surface-color);
+
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+
+    border-radius: 15px;
+
+    border:
+
+        1px solid var(--border-color);
+
+    box-shadow:
+
+        0 20px 50px var(--shadow-color);
+
+    color: var(--text-color);
+
+    transition:
+
+        transform 0.4s ease,
+
+        border-color 0.4s ease,
+
+        box-shadow 0.4s ease;
+
+}
+
+
+.card:hover {
+
+    transform: scale(1.05);
+
+    border-color:
+
+        var(--main-color);
+
+    box-shadow:
+
+        0 0 35px var(--glow-color);
+
+}
+
+
+/* =========================================================
+                    HERO
+========================================================= */
+
+.hero h2 {
+
+    font-size: 55px;
+
+    font-weight: 800;
+
+    color: var(--text-color);
+
+}
+
+
+.hero p {
+
+    margin: 25px;
+
+    font-size: 20px;
+
+    color: var(--light-text);
+
+}
+
+
+/* =========================================================
+                    LOGIN PAGE
+========================================================= */
+
+.login-page,
+.register-page {
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+
+        radial-gradient(
+            circle at top,
+            var(--glow-color),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            var(--gradient-start),
+            var(--gradient-end)
+        );
+
+    transition:
+
+        background 0.7s ease;
+
+}
+
+
+.login-card,
+.register-card {
+
+    width: 420px;
+
+    padding: 45px;
+
+    background:
+
+        var(--surface-color);
+
+    backdrop-filter: blur(25px);
+
+    -webkit-backdrop-filter: blur(25px);
+
+    border-radius: 30px;
+
+    border:
+
+        1px solid var(--border-color);
+
+    text-align: center;
+
+    box-shadow:
+
+        0 25px 60px var(--shadow-color);
+
+}
+
+
+.logo {
+
+    font-size: 45px;
+
+    font-weight: 900;
+
+    color: var(--main-color);
+
+    margin-bottom: 20px;
+
+}
+
+
+.login-card h1,
+.register-card h1 {
+
+    color: var(--text-color);
+
+}
+
+
+.subtitle {
+
+    color: var(--light-text);
+
+    margin: 15px 0 30px;
+
+}
+
+
+.input-container {
+
+    margin-bottom: 18px;
+
+}
+
+
+.input-container input {
+
+    width: 100%;
+
+    height: 55px;
+
+    border:
+
+        1px solid var(--border-color);
+
+    outline: none;
+
+    border-radius: 18px;
+
+    padding: 0 20px;
+
+    background:
+
+        var(--input-background);
+
+    color: var(--text-color);
+
+    transition: 0.3s;
+
+}
+
+
+.input-container input:focus {
+
+    border-color:
+
+        var(--main-color);
+
+    box-shadow:
+
+        0 0 0 3px var(--glow-color);
+
+}
+
+
+.login-btn,
+.register-btn {
+
+    width: 100%;
+
+    margin-top: 15px;
+
+}
+
+
+/* =========================================================
+                    DASHBOARD
+========================================================= */
+
+.dashboard-page {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+}
+
+
+.dashboard-header {
+
+    width: 100%;
+
+    text-align: center;
+
+    padding: 70px 20px 30px;
+
+}
+
+
+.dashboard-header h2 {
+
+    font-size: 45px;
+
+    color: var(--text-color);
+
+}
+
+
+.dashboard-header p {
+
+    color: var(--light-text);
+
+    font-size: 18px;
+
+}
+
+
+.dashboard {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: stretch;
+
+    flex-wrap: wrap;
+
+    gap: 35px;
+
+    padding: 40px 60px;
+
+}
+
+
+.dashboard-card {
+
+    width: 300px;
+
+    min-height: 320px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+
+        var(--surface-color);
+
+    backdrop-filter: blur(20px);
+
+    border-radius: 20px;
+
+    border:
+
+        1px solid var(--border-color);
+
+    box-shadow:
+
+        0 20px 45px var(--shadow-color);
+
+    transition: 0.4s ease;
+
+}
+
+
+.dashboard-card:hover {
+
+    transform: translateY(-7px);
+
+    border-color:
+
+        var(--main-color);
+
+    box-shadow:
+
+        0 0 30px var(--glow-color);
+
+}
+
+
+.dashboard-card h2 {
+
+    font-size: 55px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.dashboard-card h3 {
+
+    margin-bottom: 15px;
+
+    color: var(--main-color);
+
+}
+
+
+.dashboard-card p {
+
+    margin-bottom: 25px;
+
+    color: var(--light-text);
+
+}
+
+
+/* =========================================================
+                    SPOTIFY
+========================================================= */
+
+.dashboard-card a {
+
+    text-decoration: none;
+
+}
+
+
+.spotify-btn {
+
+    background: #1DB954;
+
+    padding: 14px 30px;
+
+    border-radius: 30px;
+
+    color: white;
+
+    font-weight: 700;
+
+}
+
+
+.spotify-btn:hover {
+
+    background: #169c46;
+
+}
+
+
+/* =========================================================
+                    AFFIRMATION
+========================================================= */
+
+.affirmation {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    padding: 50px;
+
+}
+
+
+.affirmation .card {
+
+    width: 600px;
+
+}
+
+
+/* =========================================================
+                    MOOD PAGE
+========================================================= */
+
+.mood-container {
+
+    width: 100%;
+
+    min-height: 80vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-direction: column;
+
+    padding: 50px;
+
+}
+
+
+.mood-page .hero {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 25px 20px 10px;
+
+}
+
+
+.mood-page .hero h2 {
+
+    color: var(--text-color);
+
+    font-size: 45px;
+
+    font-weight: 800;
+
+    margin-bottom: 10px;
+
+}
+
+
+.mood-page .hero p {
+
+    color: var(--light-text);
+
+    max-width: 650px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.mood-buttons {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.mood-buttons button {
+
+    width: 130px;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.mood-buttons button:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+/* HAPPY */
+
+.mood-buttons button:nth-child(1) {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #f5d477,
+            #f3c95b
+        );
+
+}
+
+
+/* SAD */
+
+.mood-buttons button:nth-child(2) {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #a8d1ed,
+            #8fbce6
+        );
+
+}
+
+
+/* ANGRY */
+
+.mood-buttons button:nth-child(3) {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ed9a9a,
+            #e98282
+        );
+
+}
+
+
+/* CALM */
+
+.mood-buttons button:nth-child(4) {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #c2a9df,
+            #b39bd5
+        );
+
+}
+
+
+/* EXCITED */
+
+.mood-buttons button:nth-child(5) {
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #eb91c3,
+            #a58ad7
+        );
+
+}
+
+
+/* =========================================================
+                    MOOD CARDS
+========================================================= */
+
+.mood-container {
+
+    flex-direction: row;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    padding: 10px 20px 20px;
+
+}
+
+
+.mood {
+
+    width: 160px;
+
+    height: 160px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+
+        var(--surface-color);
+
+    border:
+
+        1px solid var(--border-color);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(20px);
+
+    color: var(--text-color);
+
+    transition: 0.4s;
+
+}
+
+
+.mood:hover {
+
+    transform: translateY(-7px);
+
+    border-color:
+
+        var(--main-color);
+
+    box-shadow:
+
+        0 10px 30px var(--glow-color);
+
+}
+
+
+.mood span {
+
+    font-size: 45px;
+
+}
+
+
+.mood h3 {
+
+    margin: 8px;
+
+}
+
+
+.mood p {
+
+    color: var(--light-text);
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================================
+                    JOURNAL PAGE
+========================================================= */
+
+.journal-page {
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    background: transparent;
+
+}
+
+
+.journal-container {
+
+    width: 100%;
+
+    min-height: 80vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 60px 20px;
+
+}
+
+
+.journal-card {
+
+    width: 650px;
+
+    padding: 45px;
+
+    background:
+
+        var(--surface-color);
+
+    backdrop-filter: blur(20px);
+
+    border-radius: 30px;
+
+    border:
+
+        1px solid var(--border-color);
+
+    text-align: center;
+
+    box-shadow:
+
+        0 25px 60px var(--shadow-color);
+
+}
+
+
+.journal-card h2 {
+
+    font-size: 40px;
+
+    margin-bottom: 15px;
+
+    color: var(--main-color);
+
+}
+
+
+.journal-card p {
+
+    color: var(--light-text);
+
+    margin-bottom: 30px;
+
+}
+
+
+.mood-choice {
+
+    margin: 25px 0;
+
+}
+
+
+.mood-choice button {
+
+    width: 55px;
+
+    height: 55px;
+
+    padding: 0;
+
+    margin: 8px;
+
+    background:
+
+        var(--soft-background);
+
+    border:
+
+        1px solid var(--border-color);
+
+    border-radius: 50%;
+
+    font-size: 25px;
+
+    color: var(--text-color);
+
+}
+
+
+.mood-choice button:hover {
+
+    transform: scale(1.15);
+
+    box-shadow:
+
+        0 0 20px var(--glow-color);
+
+}
+
+
+.journal-card textarea {
+
+    width: 100%;
+
+    height: 250px;
+
+    margin-top: 25px;
+
+    padding: 25px;
+
+    border:
+
+        2px solid var(--border-color);
+
+    border-radius: 25px;
+
+    resize: none;
+
+    outline: none;
+
+    background:
+
+        var(--background-color);
+
+    color: var(--text-color);
+
+    font-size: 16px;
+
+    transition: 0.4s;
+
+}
+
+
+.journal-card textarea:focus {
+
+    border-color:
+
+        var(--main-color);
+
+    box-shadow:
+
+        0 0 0 3px var(--glow-color);
+
+}
+
+
+.save-btn {
+
+    margin-top: 25px;
+
+}
+
+
+/* =========================================================
+                    BREATHING PAGE
+========================================================= */
+
+.breathing-page {
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    background: transparent;
+
+}
+
+
+.breathing-container {
+
+    width: 100%;
+
+    min-height: 80vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 60px 20px;
+
+}
+
+
+.breathing-card {
+
+    width: 550px;
+
+    padding: 45px;
+
+    text-align: center;
+
+    background:
+
+        var(--surface-color);
+
+    backdrop-filter: blur(25px);
+
+    border-radius: 35px;
+
+    border:
+
+        1px solid var(--border-color);
+
+    box-shadow:
+
+        0 25px 60px var(--shadow-color);
+
+}
+
+
+.breathing-card h2 {
+
+    font-size: 38px;
+
+    color: var(--text-color);
+
+    margin-bottom: 15px;
+
+}
+
+
+.breathing-card p {
+
+    color: var(--light-text);
+
+    line-height: 1.7;
+
+}
+
+
+.breathing-circle {
+
+    width: 220px;
+
+    height: 220px;
+
+    margin: 40px auto;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: white;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--main-color),
+            var(--second-color)
+        );
+
+    box-shadow:
+
+        0 0 45px var(--glow-color);
+
+    animation:
+
+        breathe 6s infinite;
+
+    transition:
+
+        background 0.7s ease,
+
+        box-shadow 0.7s ease;
+
+}
+
+
+@keyframes breathe {
+
+    0% {
+
+        transform: scale(1);
+
+    }
+
+    40% {
+
+        transform: scale(1.25);
+
+    }
+
+    70% {
+
+        transform: scale(1.25);
+
+    }
+
+    100% {
+
+        transform: scale(1);
+
+    }
+
+}
+
+
+.steps {
+
+    margin: 25px 0;
+
+}
+
+
+.steps p {
+
+    background:
+
+        var(--soft-background);
+
+    padding: 12px;
+
+    margin: 10px;
+
+    border-radius: 20px;
+
+    border:
+
+        1px solid var(--border-color);
+
+}
+
+
+.breathing-card button {
+
+    margin-top: 20px;
+
+}
+
+
+/* =========================================================
+                    HOME PAGE
+========================================================= */
+
+.home-page {
+
+    min-height: 100vh;
+
+    width: 100%;
+
+}
+
+
+.home-page .navbar {
+
+    width: 100%;
+
+}
+
+
+.hero {
+
+    width: 100%;
+
+    min-height: 70vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+}
+
+
+.hero h2 {
+
+    font-size: 55px;
+
+    font-weight: 900;
+
+    color: var(--text-color);
+
+    margin-bottom: 20px;
+
+}
+
+
+.hero p {
+
+    max-width: 700px;
+
+    color: var(--light-text);
+
+    font-size: 20px;
+
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+
+}
+
+
+.hero button {
+
+    margin-top: 20px;
+
+}
+
+
+/* =========================================================
+                    FEATURES
+========================================================= */
+
+.features {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 35px;
+
+    padding: 60px 40px;
+
+}
+
+
+.features .card {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-direction: column;
+
+    min-height: 250px;
+
+}
+
+
+.features .card h3 {
+
+    margin: 15px 0;
+
+    color: var(--text-color);
+
+}
+
+
+.features .card p {
+
+    color: var(--light-text);
+
+}
+
+
+/* =========================================================
+                    FOOTER
+========================================================= */
+
+footer {
+
+    width: 100%;
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: var(--light-text);
+
+    border-top:
+
+        1px solid var(--border-color);
+
+}
+
+
+/* =========================================================
+                    RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+
+        padding: 20px;
+
+        flex-direction: column;
+
+        gap: 15px;
+
+    }
+
+
+    nav {
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+    }
+
+
+    nav a {
+
+        margin: 7px;
+
+    }
+
+
+    .hero h2 {
+
+        font-size: 38px;
+
+    }
+
+
+    .hero p {
+
+        font-size: 16px;
+
+    }
+
+
+    .dashboard {
+
+        padding: 30px 20px;
+
+    }
+
+
+    .dashboard-card {
+
+        width: 100%;
+
+        max-width: 350px;
+
+    }
+
+
+    .journal-card {
+
+        width: 100%;
+
+        padding: 30px 20px;
+
+    }
+
+
+    .breathing-card {
+
+        width: 100%;
+
+        padding: 30px 20px;
+
+    }
+
+
+    .breathing-circle {
+
+        width: 180px;
+
+        height: 180px;
+
+    }
+
+}
+/* =========================================================
+                    MOOD CALENDAR
+========================================================= */
+
+.calendar-section {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 60px 20px;
+
+}
+
+
+.calendar-section > h2 {
+
+    color: var(--text-color);
+
+    font-size: 35px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.calendar-section > p {
+
+    color: var(--light-text);
+
+    margin-bottom: 30px;
+
+}
+
+
+.calendar-card {
+
+    width: 90%;
+
+    max-width: 850px;
+
+    padding: 35px;
+
+    background: var(--surface-color);
+
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+
+    border-radius: 30px;
+
+    border: 1px solid var(--border-color);
+
+    box-shadow: 0 20px 50px var(--shadow-color);
+
+}
+
+
+.calendar-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+
+}
+
+
+.calendar-header h2 {
+
+    color: var(--main-color);
+
+    font-size: 28px;
+
+}
+
+
+.calendar-header button {
+
+    width: 45px;
+
+    height: 45px;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+}
+
+
+.calendar-weekdays {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 10px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.calendar-weekdays div {
+
+    text-align: center;
+
+    color: var(--light-text);
+
+    font-weight: 700;
+
+    padding: 10px;
+
+}
+
+
+.calendar-days {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 10px;
+
+}
+
+
+.calendar-day {
+
+    min-height: 70px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,0.55);
+
+    border:
+        1px solid var(--border-color);
+
+    color: var(--text-color);
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+
+}
+
+
+.calendar-day:hover {
+
+    transform: translateY(-3px);
+
+    border-color: var(--main-color);
+
+}
+
+
+.calendar-day.empty {
+
+    background: transparent;
+
+    border: none;
+
+}
+
+
+.calendar-day span {
+
+    width: 40px;
+
+    height: 40px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+}
+
+
+/* =========================================================
+                    MOOD COLORS
+========================================================= */
+
+.calendar-day.happy-day {
+
+    background: #fff1a8;
+
+    color: #75621d;
+
+}
+
+
+.calendar-day.sad-day {
+
+    background: #b9d5f2;
+
+    color: #405d7a;
+
+}
+
+
+.calendar-day.angry-day {
+
+    background: #f2b1b1;
+
+    color: #813d3d;
+
+}
+
+
+.calendar-day.calm-day {
+
+    background: #d5c1ed;
+
+    color: #604c78;
+
+}
+
+
+.calendar-day.excited-day {
+
+    background: #f2b3d4;
+
+    color: #7a4261;
+
+}
+
+
+/* =========================================================
+                    MOOD LEGEND
+========================================================= */
+
+.mood-legend {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+    margin-top: 30px;
+
+    color: var(--light-text);
+
+    font-size: 14px;
+
+}
+
+
+@media (max-width: 600px) {
+
+    .calendar-card {
+
+        width: 100%;
+
+        padding: 20px;
+
+    }
+
+
+    .calendar-days,
+    .calendar-weekdays {
+
+        gap: 5px;
+
+    }
+
+
+    .calendar-day {
+
+        min-height: 50px;
+
+        border-radius: 12px;
+
+    }
+
+
+    .calendar-day span {
+
+        width: 30px;
+
+        height: 30px;
+
+    }
+
+
+    .calendar-weekdays div {
+
+        font-size: 12px;
+
+    }
+
+
+    .calendar-header h2 {
+
+        font-size: 21px;
+
+    }
+
+}
+/* =========================================================
+                ANALYTICS PAGE
+========================================================= */
+
+.analytics-page {
+
+    min-height: 100vh;
+
+}
+
+
+/* =========================================================
+                ANALYTICS HERO
+========================================================= */
+
+.analytics-hero {
+
+    width: 100%;
+
+    text-align: center;
+
+    padding: 65px 20px 35px;
+
+}
+
+
+.analytics-hero h2 {
+
+    font-size: 45px;
+
+    font-weight: 800;
+
+    color: var(--text-color);
+
+    margin-bottom: 15px;
+
+}
+
+
+.analytics-hero p {
+
+    max-width: 650px;
+
+    margin: auto;
+
+    color: var(--light-text);
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+                ANALYTICS OVERVIEW
+========================================================= */
+
+.analytics-overview {
+
+    width: 100%;
+
+    max-width: 1050px;
+
+    margin: 0 auto;
+
+    padding: 25px 30px 70px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+
+.analytics-card {
+
+    min-height: 190px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 28px;
+
+    background: var(--surface-color);
+
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 18px 45px var(--shadow-color);
+
+    transition: 0.4s ease;
+
+}
+
+
+.analytics-card:hover {
+
+    transform: translateY(-6px);
+
+    border-color: var(--main-color);
+
+    box-shadow:
+        0 0 30px var(--glow-color);
+
+}
+
+
+.analytics-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.65);
+
+    font-size: 32px;
+
+}
+
+
+.analytics-content {
+
+    width: 100%;
+
+}
+
+
+.analytics-content h3 {
+
+    color: var(--main-color);
+
+    font-size: 20px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.analytics-content p {
+
+    color: var(--light-text);
+
+    font-size: 13px;
+
+    margin-bottom: 18px;
+
+}
+
+
+/* =========================================================
+                ANALYTICS BARS
+========================================================= */
+
+.analytics-bar {
+
+    width: 100%;
+
+    height: 10px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.65);
+
+}
+
+
+.analytics-bar-fill {
+
+    height: 100%;
+
+    border-radius: 20px;
+
+}
+
+
+.happy-fill {
+
+    width: 75%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f6d77a,
+            #f3b866
+        );
+
+}
+
+
+.calm-fill {
+
+    width: 60%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #bfa7df,
+            #9e87c9
+        );
+
+}
+
+
+.sad-fill {
+
+    width: 40%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #a9c8e8,
+            #819fca
+        );
+
+}
+
+
+/* =========================================================
+                MOOD CALENDAR SECTION
+========================================================= */
+
+.mood-calendar-section {
+
+    width: 100%;
+
+    padding: 70px 20px 90px;
+
+    background:
+        rgba(255,255,255,0.18);
+
+    border-top:
+        1px solid var(--border-color);
+
+}
+
+
+.calendar-title {
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+}
+
+
+.calendar-title span {
+
+    display: block;
+
+    font-size: 42px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.calendar-title h2 {
+
+    font-size: 38px;
+
+    color: var(--text-color);
+
+    margin-bottom: 8px;
+
+}
+
+
+.calendar-title p {
+
+    color: var(--light-text);
+
+}
+
+
+/* =========================================================
+                CALENDAR CARD
+========================================================= */
+
+.mood-calendar-section .calendar-card {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 40px;
+
+    background:
+        var(--surface-color);
+
+    backdrop-filter: blur(25px);
+
+    -webkit-backdrop-filter: blur(25px);
+
+    border:
+        1px solid var(--border-color);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 25px 60px var(--shadow-color);
+
+}
+
+
+/* =========================================================
+                CALENDAR HEADER
+========================================================= */
+
+.mood-calendar-section .calendar-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 35px;
+
+}
+
+
+.mood-calendar-section .calendar-header h2 {
+
+    color: var(--main-color);
+
+    font-size: 28px;
+
+}
+
+
+.mood-calendar-section .calendar-header button {
+
+    width: 45px;
+
+    height: 45px;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+}
+
+
+/* =========================================================
+                WEEKDAYS
+========================================================= */
+
+.mood-calendar-section .calendar-weekdays {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.mood-calendar-section .calendar-weekdays div {
+
+    text-align: center;
+
+    padding: 10px;
+
+    color: var(--light-text);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+                CALENDAR DAYS
+========================================================= */
+
+.mood-calendar-section .calendar-days {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 12px;
+
+}
+
+
+.mood-calendar-section .calendar-day {
+
+    min-height: 75px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.55);
+
+    border:
+        1px solid var(--border-color);
+
+    color: var(--text-color);
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+
+}
+
+
+.mood-calendar-section .calendar-day:hover {
+
+    transform: translateY(-4px);
+
+    border-color: var(--main-color);
+
+    box-shadow:
+        0 8px 20px var(--shadow-color);
+
+}
+
+
+.mood-calendar-section .calendar-day.empty {
+
+    background: transparent;
+
+    border: none;
+
+    box-shadow: none;
+
+}
+
+
+.mood-calendar-section .calendar-day span {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+}
+
+
+/* =========================================================
+                MOOD DAY COLORS
+========================================================= */
+
+.mood-calendar-section .calendar-day.happy-day {
+
+    background: #fff1a8;
+
+    color: #75621d;
+
+}
+
+
+.mood-calendar-section .calendar-day.sad-day {
+
+    background: #b9d5f2;
+
+    color: #405d7a;
+
+}
+
+
+.mood-calendar-section .calendar-day.angry-day {
+
+    background: #f2b1b1;
+
+    color: #813d3d;
+
+}
+
+
+.mood-calendar-section .calendar-day.calm-day {
+
+    background: #d5c1ed;
+
+    color: #604c78;
+
+}
+
+
+.mood-calendar-section .calendar-day.excited-day {
+
+    background: #f2b3d4;
+
+    color: #7a4261;
+
+}
+
+
+/* =========================================================
+                MOOD LEGEND
+========================================================= */
+
+.mood-calendar-section .mood-legend {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 35px;
+
+}
+
+
+.mood-calendar-section .legend {
+
+    padding: 9px 16px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,0.65);
+
+    color: var(--text-color);
+
+    font-size: 13px;
+
+    border:
+        1px solid var(--border-color);
+
+}
+
+
+/* =========================================================
+                    MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .analytics-overview {
+
+        grid-template-columns: 1fr;
+
+        max-width: 550px;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .analytics-hero {
+
+        padding-top: 45px;
+
+    }
+
+
+    .analytics-hero h2 {
+
+        font-size: 34px;
+
+    }
+
+
+    .calendar-title h2 {
+
+        font-size: 30px;
+
+    }
+
+
+    .mood-calendar-section .calendar-card {
+
+        padding: 20px;
+
+    }
+
+
+    .mood-calendar-section .calendar-days,
+    .mood-calendar-section .calendar-weekdays {
+
+        gap: 5px;
+
+    }
+
+
+    .mood-calendar-section .calendar-day {
+
+        min-height: 50px;
+
+        border-radius: 12px;
+
+    }
+
+
+    .mood-calendar-section .calendar-day span {
+
+        width: 30px;
+
+        height: 30px;
+
+    }
+
+
+    .mood-calendar-section .calendar-weekdays div {
+
+        font-size: 11px;
+
+        padding: 5px;
+
+    }
+
+
+    .mood-calendar-section .calendar-header h2 {
+
+        font-size: 20px;
+
+    }
+
+
+    .mood-calendar-section .mood-legend {
+
+        gap: 8px;
+
+    }
+
+}
+/* =========================================================
+                JOURNAL MOOD SELECTION
+========================================================= */
+
+.mood-choice button.selected-mood {
+
+    transform: scale(1.15);
+
+    border:
+
+        3px solid var(--main-color);
+
+    background:
+
+        var(--surface-strong);
+
+    box-shadow:
+
+        0 0 25px var(--glow-color);
+
+}
+
+
+/* =========================================================
+                JOURNAL MESSAGE
+========================================================= */
+
+.journal-message {
+
+    min-height: 25px;
+
+    margin-top: 18px !important;
+
+    margin-bottom: 0 !important;
+
+    font-weight: 600;
+
+}
+
+
+.journal-message.success {
+
+    color: #62a878;
+
+}
+
+
+.journal-message.error {
+
+    color: #d96f78;
+
+}
+
+
+/* =========================================================
+                MEMORY INDICATOR
+========================================================= */
+
+.calendar-day.has-memory {
+
+    cursor: pointer;
+
+    position: relative;
+
+}
+
+
+.calendar-day.has-memory::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 4px;
+
+    border:
+
+        2px solid rgba(255,255,255,0.65);
+
+    border-radius: 17px;
+
+    pointer-events: none;
+
+}
+
+
+.memory-indicator {
+
+    position: absolute;
+
+    bottom: 5px;
+
+    right: 7px;
+
+    width: auto !important;
+
+    height: auto !important;
+
+    font-size: 13px;
+
+    background: transparent !important;
+
+    border-radius: 0 !important;
+
+}
+
+
+/* =========================================================
+                MEMORY POPUP
+========================================================= */
+
+.memory-popup {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    background:
+
+        rgba(70, 45, 75, 0.35);
+
+    backdrop-filter: blur(8px);
+
+    -webkit-backdrop-filter: blur(8px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+
+        opacity 0.3s ease,
+
+        visibility 0.3s ease;
+
+}
+
+
+.memory-popup.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+}
+
+
+/* =========================================================
+                POPUP BOX
+========================================================= */
+
+.memory-popup-box {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 600px;
+
+    max-height: 85vh;
+
+    overflow-y: auto;
+
+    padding: 40px;
+
+    background:
+
+        var(--surface-strong);
+
+    backdrop-filter: blur(25px);
+
+    -webkit-backdrop-filter: blur(25px);
+
+    border:
+
+        1px solid var(--border-color);
+
+    border-radius: 30px;
+
+    box-shadow:
+
+        0 30px 80px var(--shadow-color);
+
+    transform: translateY(20px) scale(0.95);
+
+    transition:
+
+        transform 0.3s ease;
+
+}
+
+
+.memory-popup.show .memory-popup-box {
+
+    transform:
+
+        translateY(0) scale(1);
+
+}
+
+
+/* =========================================================
+                CLOSE BUTTON
+========================================================= */
+
+.memory-close {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 15px;
+
+    width: 40px;
+
+    height: 40px;
+
+    padding: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+
+        var(--soft-background);
+
+    color:
+
+        var(--text-color);
+
+    border:
+
+        1px solid var(--border-color);
+
+    font-size: 25px;
+
+    line-height: 1;
+
+}
+
+
+.memory-close:hover {
+
+    color: white;
+
+    background:
+
+        var(--main-color);
+
+}
+
+
+/* =========================================================
+                POPUP CONTENT
+========================================================= */
+
+.memory-popup-content {
+
+    padding-top: 10px;
+
+}
+
+
+.memory-date {
+
+    text-align: center;
+
+    color:
+
+        var(--main-color);
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* =========================================================
+                MEMORY ENTRY
+========================================================= */
+
+.memory-entry {
+
+    padding: 22px;
+
+    margin-bottom: 18px;
+
+    background:
+
+        var(--soft-background);
+
+    border:
+
+        1px solid var(--border-color);
+
+    border-radius: 20px;
+
+}
+
+
+.memory-entry-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.memory-entry-header span {
+
+    font-size: 30px;
+
+}
+
+
+.memory-entry-header strong {
+
+    color:
+
+        var(--text-color);
+
+    font-size: 16px;
+
+}
+
+
+.memory-entry-header small {
+
+    margin-left: auto;
+
+    color:
+
+        var(--light-text);
+
+    font-size: 12px;
+
+}
+
+
+.memory-entry p {
+
+    color:
+
+        var(--text-color);
+
+    line-height: 1.7;
+
+    white-space: pre-wrap;
+
+    word-wrap: break-word;
+
+}
+
+
+/* =========================================================
+                MOOD ONLY
+========================================================= */
+
+.memory-mood {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+    background:
+
+        var(--soft-background);
+
+    border:
+
+        1px solid var(--border-color);
+
+    border-radius: 20px;
+
+}
+
+
+.memory-mood-emoji {
+
+    font-size: 45px;
+
+}
+
+
+.memory-mood small {
+
+    display: block;
+
+    color:
+
+        var(--light-text);
+
+    margin-bottom: 4px;
+
+}
+
+
+.memory-mood strong {
+
+    color:
+
+        var(--text-color);
+
+    font-size: 20px;
+
+}
+
+
+/* =========================================================
+                NO MEMORY
+========================================================= */
+
+.no-memory {
+
+    text-align: center;
+
+    padding: 25px;
+
+}
+
+
+.no-memory-icon {
+
+    font-size: 55px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.no-memory h3 {
+
+    color:
+
+        var(--text-color);
+
+    font-size: 22px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.no-memory p {
+
+    color:
+
+        var(--light-text);
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+                POPUP CLOSE BUTTON
+========================================================= */
+
+.memory-close-btn {
+
+    display: block;
+
+    margin: 25px auto 0;
+
+}
+
+
+/* =========================================================
+                MOBILE MEMORY POPUP
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .memory-popup-box {
+
+        padding: 30px 20px;
+
+        border-radius: 25px;
+
+        max-height: 90vh;
+
+    }
+
+
+    .memory-date {
+
+        font-size: 21px;
+
+        padding: 0 25px;
+
+    }
+
+
+    .memory-entry {
+
+        padding: 18px;
+
+    }
+
+
+    .memory-entry-header {
+
+        flex-wrap: wrap;
+
+    }
+
+
+    .memory-entry-header small {
+
+        width: 100%;
+
+        margin-left: 42px;
+
+    }
+
+
+    .memory-close {
+
+        width: 35px;
+
+        height: 35px;
+
+    }
+
+}
+/* =========================================================
+                MOOD CHECK-IN PAGE
+========================================================= */
+
+.mood-check-page {
+
+    min-height: 100vh;
+
+}
+
+
+/* =========================================================
+                    CHECK HERO
+========================================================= */
+
+.check-hero {
+
+    width: 100%;
+
+    text-align: center;
+
+    padding: 60px 20px 35px;
+
+}
+
+
+.check-hero h2 {
+
+    font-size: 45px;
+
+    font-weight: 800;
+
+    color: var(--text-color);
+
+    margin-bottom: 15px;
+
+}
+
+
+.check-hero p {
+
+    max-width: 650px;
+
+    margin: auto;
+
+    color: var(--light-text);
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+                    CHECK CONTAINER
+========================================================= */
+
+.check-container {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    padding: 30px 20px 80px;
+
+}
+
+
+.check-card {
+
+    width: 100%;
+
+    max-width: 750px;
+
+    padding: 40px;
+
+    background: var(--surface-color);
+
+    backdrop-filter: blur(25px);
+
+    -webkit-backdrop-filter: blur(25px);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 25px 60px var(--shadow-color);
+
+}
+
+
+/* =========================================================
+                    QUESTIONS
+========================================================= */
+
+.question {
+
+    padding: 30px 0;
+
+    border-bottom:
+        1px solid var(--border-color);
+
+}
+
+
+.question:first-child {
+
+    padding-top: 5px;
+
+}
+
+
+.question h3 {
+
+    color: var(--text-color);
+
+    font-size: 20px;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* =========================================================
+                    ANSWER OPTIONS
+========================================================= */
+
+.question label {
+
+    display: block;
+
+    padding: 15px 20px;
+
+    margin: 10px 0;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,0.55);
+
+    border:
+        1px solid var(--border-color);
+
+    color: var(--text-color);
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+}
+
+
+.question label:hover {
+
+    transform: translateX(5px);
+
+    border-color:
+        var(--main-color);
+
+    background:
+        var(--soft-background);
+
+}
+
+
+.question input {
+
+    margin-right: 12px;
+
+    accent-color:
+        var(--main-color);
+
+}
+
+
+/* =========================================================
+                    CHECK BUTTON
+========================================================= */
+
+.check-btn {
+
+    display: block;
+
+    margin: 40px auto 5px;
+
+    padding: 16px 40px;
+
+}
+
+
+/* =========================================================
+                    RESULT
+========================================================= */
+
+.mood-result {
+
+    display: none;
+
+    text-align: center;
+
+    padding: 30px 10px;
+
+}
+
+
+.result-emoji {
+
+    font-size: 85px;
+
+    margin-bottom: 20px;
+
+    animation:
+        resultPop 0.7s ease;
+
+}
+
+
+@keyframes resultPop {
+
+    0% {
+
+        transform: scale(0);
+
+        opacity: 0;
+
+    }
+
+    70% {
+
+        transform: scale(1.15);
+
+    }
+
+    100% {
+
+        transform: scale(1);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+.mood-result h2 {
+
+    color: var(--main-color);
+
+    font-size: 32px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.mood-result p {
+
+    max-width: 550px;
+
+    margin: auto;
+
+    color: var(--light-text);
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+                    RESULT BUTTONS
+========================================================= */
+
+.result-actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 30px;
+
+}
+
+
+.result-actions button {
+
+    padding: 13px 22px;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================================
+                    MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .check-hero {
+
+        padding: 45px 20px 25px;
+
+    }
+
+
+    .check-hero h2 {
+
+        font-size: 32px;
+
+    }
+
+
+    .check-hero p {
+
+        font-size: 15px;
+
+    }
+
+
+    .check-card {
+
+        padding: 25px 18px;
+
+        border-radius: 25px;
+
+    }
+
+
+    .question h3 {
+
+        font-size: 18px;
+
+    }
+
+
+    .question label {
+
+        padding: 13px 15px;
+
+        font-size: 14px;
+
+    }
+
+
+    .check-btn {
+
+        width: 100%;
+
+    }
+
+
+    .mood-result h2 {
+
+        font-size: 25px;
+
+    }
+
+
+    .result-actions {
+
+        flex-direction: column;
+
+    }
+
+
+    .result-actions button {
+
+        width: 100%;
+
+    }
+
+}
+
+/* =========================================================
+            NOT SURE MOOD BUTTON
+========================================================= */
+
+.check-mood-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+
+.mood-buttons .check-mood-button {
+
+    width: auto;
+
+    min-width: 170px;
+
+    height: 50px;
+
+    padding: 0 25px;
+
+    white-space: nowrap;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d8b4e2,
+            #b39bd5
+        );
+
+}
+
+
+/* Hover */
+
+.mood-buttons .check-mood-button:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 28px var(--shadow-color);
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .mood-buttons .check-mood-button {
+
+        width: 180px;
+
+    }
+
+}
+/* =========================================================
+                MOODVERSE TINY STEPS
+========================================================= */
+
+.mood-boost-page {
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+                    MAIN CONTAINER
+========================================================= */
+
+.mood-boost-container {
+    width: 100%;
+    padding: 60px 20px 80px;
+}
+
+
+/* =========================================================
+                    HERO
+========================================================= */
+
+.mood-boost-hero {
+    max-width: 750px;
+    margin: auto;
+    text-align: center;
+}
+
+
+.boost-emoji {
+    font-size: 70px;
+    margin-bottom: 15px;
+    animation: gentleFloat 3s ease-in-out infinite;
+}
+
+
+@keyframes gentleFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+
+.mood-boost-hero h2 {
+    font-size: 42px;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+
+.mood-boost-hero p {
+    color: var(--light-text);
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+                    TINY STEPS
+========================================================= */
+
+.tiny-steps-section {
+    max-width: 1000px;
+    margin: 60px auto 0;
+}
+
+
+.tiny-steps-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+.tiny-steps-header h2 {
+    font-size: 32px;
+    color: var(--main-color);
+    margin-bottom: 8px;
+}
+
+
+.tiny-steps-header p {
+    color: var(--light-text);
+}
+
+
+/* =========================================================
+                    TASK GRID
+========================================================= */
+
+.tiny-steps-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+
+/* =========================================================
+                    TASK CARD
+========================================================= */
+
+.tiny-step-card {
+
+    padding: 30px 25px;
+
+    text-align: center;
+
+    background:
+        var(--surface-color);
+
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+
+    border:
+        1px solid var(--border-color);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 18px 45px var(--shadow-color);
+
+    transition: 0.4s ease;
+
+}
+
+
+.tiny-step-card:hover {
+
+    transform: translateY(-7px);
+
+    border-color:
+        var(--main-color);
+
+    box-shadow:
+        0 0 30px var(--glow-color);
+
+}
+
+
+.tiny-step-card.completed {
+
+    opacity: 0.7;
+
+    background:
+        var(--soft-background);
+
+}
+
+
+.step-icon {
+
+    font-size: 45px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.tiny-step-card h3 {
+
+    color: var(--text-color);
+
+    margin-bottom: 10px;
+
+}
+
+
+.tiny-step-card p {
+
+    color: var(--light-text);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    min-height: 45px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.tiny-step-card button {
+
+    padding: 11px 25px;
+
+    font-size: 14px;
+
+}
+
+
+.tiny-step-card.completed button {
+
+    background:
+        #8fc99c;
+
+}
+
+
+/* =========================================================
+                    PROGRESS CARD
+========================================================= */
+
+.boost-progress-card {
+
+    width: 100%;
+
+    max-width: 600px;
+
+    margin: 50px auto 0;
+
+    padding: 30px;
+
+    text-align: center;
+
+    background:
+        var(--surface-color);
+
+    backdrop-filter: blur(20px);
+
+    border:
+        1px solid var(--border-color);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 18px 45px var(--shadow-color);
+
+}
+
+
+.boost-progress-card h2 {
+
+    color: var(--main-color);
+
+    margin-bottom: 10px;
+
+}
+
+
+.progress-number {
+
+    font-size: 35px;
+
+    font-weight: 800;
+
+    color: var(--text-color);
+
+}
+
+
+.boost-progress-card p {
+
+    color: var(--light-text);
+
+    margin-bottom: 20px;
+
+}
+
+
+.progress-bar {
+
+    width: 100%;
+
+    height: 12px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.6);
+
+}
+
+
+.progress-fill {
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: 20px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--second-color),
+            var(--main-color)
+        );
+
+    transition:
+        width 0.5s ease;
+
+}
+
+
+/* =========================================================
+                    FEELING CHECK
+========================================================= */
+
+.feeling-check {
+
+    max-width: 700px;
+
+    margin: 60px auto 0;
+
+    padding: 40px 25px;
+
+    text-align: center;
+
+    background:
+        var(--surface-color);
+
+    backdrop-filter: blur(20px);
+
+    border:
+        1px solid var(--border-color);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 50px var(--shadow-color);
+
+}
+
+
+.feeling-icon {
+
+    font-size: 45px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.feeling-check h2 {
+
+    color: var(--text-color);
+
+    margin-bottom: 8px;
+
+}
+
+
+.feeling-check > p {
+
+    color: var(--light-text);
+
+    margin-bottom: 25px;
+
+}
+
+
+.feeling-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+}
+
+
+.feeling-buttons button {
+
+    padding: 12px 20px;
+
+    font-size: 14px;
+
+}
+
+
+.feeling-message {
+
+    margin-top: 25px;
+
+    font-weight: 600;
+
+    color: var(--main-color);
+
+}
+
+
+/* =========================================================
+                    ACTION BUTTONS
+========================================================= */
+
+.boost-actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 45px;
+
+}
+
+
+.boost-actions button {
+
+    padding: 13px 25px;
+
+}
+
+
+/* =========================================================
+                    MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .tiny-steps-grid {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .mood-boost-container {
+
+        padding:
+            40px 15px 60px;
+
+    }
+
+
+    .mood-boost-hero h2 {
+
+        font-size: 32px;
+
+    }
+
+
+    .boost-emoji {
+
+        font-size: 55px;
+
+    }
+
+
+    .tiny-steps-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .feeling-buttons {
+
+        flex-direction: column;
+
+    }
+
+
+    .feeling-buttons button {
+
+        width: 100%;
+
+    }
+
+
+    .boost-actions {
+
+        flex-direction: column;
+
+    }
+
+
+    .boost-actions a {
+
+        width: 100%;
+
+    }
+
+
+    .boost-actions button {
+
+        width: 100%;
+
+    }
+
+}
+/* =====================================================
+              MOOD CHECK RESULT
+===================================================== */
+
+.mood-result {
+
+    display: none;
+
+    margin-top: 30px;
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.10);
+
+    animation:
+        moodResultAppear 0.5s ease;
+
+}
+
+
+/* =====================================================
+                    RESULT EMOJI
+===================================================== */
+
+.result-emoji {
+
+    font-size: 70px;
+
+    margin-bottom: 10px;
+
+}
+
+
+/* =====================================================
+                    RESULT TITLE
+===================================================== */
+
+.mood-result h2 {
+
+    margin: 10px 0;
+
+    font-size: 28px;
+
+}
+
+
+/* =====================================================
+                    RESULT MESSAGE
+===================================================== */
+
+.mood-result > p {
+
+    max-width: 600px;
+
+    margin: 0 auto 20px;
+
+    line-height: 1.7;
+
+    font-size: 16px;
+
+}
+
+
+/* =====================================================
+                TINY SUGGESTION
+===================================================== */
+
+.result-suggestion {
+
+    max-width: 550px;
+
+    margin: 20px auto;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+}
+
+
+.result-suggestion strong {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+}
+
+
+.result-suggestion p {
+
+    margin: 0;
+
+    line-height: 1.6;
+
+}
+
+
+/* =====================================================
+                    ACTIONS
+===================================================== */
+
+.result-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 25px;
+
+}
+
+
+.result-actions a {
+
+    text-decoration: none;
+
+}
+
+
+.result-actions button {
+
+    border: none;
+
+    padding: 13px 18px;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    background: linear-gradient(
+        135deg,
+        #8ec5fc,
+        #e0c3fc
+    );
+
+    color: #333;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.result-actions button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.12);
+
+}
+
+
+/* =====================================================
+                    ANIMATION
+===================================================== */
+
+@keyframes moodResultAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+                MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .mood-result {
+
+        padding: 28px 18px;
+
+    }
+
+
+    .result-emoji {
+
+        font-size: 60px;
+
+    }
+
+
+    .mood-result h2 {
+
+        font-size: 23px;
+
+    }
+
+
+    .result-actions {
+
+        flex-direction: column;
+
+    }
+
+
+    .result-actions a {
+
+        width: 100%;
+
+    }
+
+
+    .result-actions button {
+
+        width: 100%;
+
+    }
+
+}
+/* =====================================================
+                MOOD BOOST PAGE
+===================================================== */
+
+.mood-boost-page {
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+                    HERO
+===================================================== */
+
+.boost-hero {
+    text-align: center;
+    padding: 55px 20px 35px;
+}
+
+
+.boost-hero-icon {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+
+.boost-hero h2 {
+    font-size: 36px;
+    margin: 10px 0;
+}
+
+
+.boost-hero p {
+    max-width: 650px;
+    margin: auto;
+    color: #666;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+                    PROGRESS
+===================================================== */
+
+.progress-section {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+}
+
+
+.progress-card {
+    background: white;
+    padding: 22px;
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+}
+
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.progress-header h3 {
+    margin: 0;
+}
+
+
+.progress-header p {
+    margin: 5px 0 0;
+    color: #777;
+}
+
+
+.progress-count {
+    font-size: 22px;
+    font-weight: bold;
+    color: #8b63ff;
+}
+
+
+.progress-bar {
+    height: 12px;
+    background: #eee;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 18px;
+}
+
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #9b6cff,
+            #ff7eb3
+        );
+
+    transition: width 0.4s ease;
+}
+
+
+/* =====================================================
+                    TINY STEPS
+===================================================== */
+
+.tiny-steps-section {
+    width: 90%;
+    max-width: 1000px;
+    margin: 55px auto;
+}
+
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+.section-title h2 {
+    font-size: 30px;
+}
+
+
+.section-title p {
+    color: #777;
+}
+
+
+.tiny-steps-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(240px, 1fr)
+        );
+
+    gap: 20px;
+}
+
+
+.tiny-step-card {
+    background: white;
+    padding: 25px;
+    border-radius: 22px;
+    text-align: center;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.07);
+
+    transition: 0.25s;
+}
+
+
+.tiny-step-card:hover {
+    transform: translateY(-5px);
+}
+
+
+.tiny-step-card.completed {
+    opacity: 0.65;
+    background: #f2fff7;
+}
+
+
+.step-icon {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+
+.tiny-step-card h3 {
+    margin: 8px 0;
+}
+
+
+.tiny-step-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+
+.tiny-step-card button {
+    margin-top: 12px;
+
+    border: none;
+
+    padding: 10px 22px;
+
+    border-radius: 25px;
+
+    background: #8b63ff;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.tiny-step-card button:hover {
+    transform: scale(1.05);
+}
+
+
+.tiny-step-card button:disabled {
+    background: #70c99b;
+    cursor: default;
+}
+
+
+/* =====================================================
+                POP THE STRESS SECTION
+===================================================== */
+
+.stress-game-section {
+    width: 90%;
+    max-width: 900px;
+
+    margin: 70px auto;
+
+    text-align: center;
+}
+
+
+.game-heading-icon {
+    font-size: 55px;
+}
+
+
+.game-heading h2 {
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+
+.game-heading p {
+    color: #666;
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+                    GAME CARD
+===================================================== */
+
+.stress-game-card {
+
+    max-width: 550px;
+
+    margin: 30px auto 0;
+
+    padding: 35px 25px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0f8,
+            #f0edff
+        );
+
+    box-shadow:
+        0 15px 40px rgba(100,80,150,0.12);
+}
+
+
+.stress-game-emoji {
+    font-size: 65px;
+}
+
+
+.stress-game-card h3 {
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+
+.stress-game-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+                    GAME FEATURES
+===================================================== */
+
+.game-features {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin: 20px 0;
+}
+
+
+.game-features span {
+
+    background: white;
+
+    padding: 8px 13px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+
+    color: #666;
+}
+
+
+/* =====================================================
+                    PLAY BUTTON
+===================================================== */
+
+.play-game-button {
+
+    display: inline-block;
+
+    padding: 14px 30px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #9b6cff,
+            #ff7eb3
+        );
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    font-size: 17px;
+
+    box-shadow:
+        0 8px 20px rgba(150,100,200,0.2);
+
+    transition: 0.25s;
+}
+
+
+.play-game-button:hover {
+    transform: translateY(-3px) scale(1.03);
+}
+
+
+/* =====================================================
+                FEELING SECTION
+===================================================== */
+
+.feeling-section {
+    width: 90%;
+    max-width: 850px;
+    margin: 60px auto;
+}
+
+
+.feeling-card {
+
+    text-align: center;
+
+    background: white;
+
+    padding: 35px 20px;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.07);
+}
+
+
+.feeling-card h2 {
+    margin-top: 0;
+}
+
+
+.feeling-card p {
+    color: #666;
+}
+
+
+.feeling-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+
+.feeling-buttons button {
+
+    border: none;
+
+    padding: 12px 18px;
+
+    border-radius: 25px;
+
+    background: #f2edff;
+
+    color: #6546b8;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+
+.feeling-buttons button:hover {
+    transform: translateY(-2px);
+}
+
+
+.feeling-message {
+
+    margin-top: 20px;
+
+    font-weight: bold;
+
+    color: #7656c7 !important;
+}
+
+
+/* =====================================================
+                JOURNAL SECTION
+===================================================== */
+
+.journal-boost-section {
+
+    width: 90%;
+    max-width: 800px;
+
+    margin: 60px auto;
+}
+
+
+.journal-boost-card {
+
+    text-align: center;
+
+    padding: 35px 25px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef9ff,
+            #fff2f8
+        );
+}
+
+
+.journal-icon {
+    font-size: 50px;
+}
+
+
+.journal-button {
+
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 12px 25px;
+
+    border-radius: 25px;
+
+    background: white;
+
+    color: #7656c7;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.08);
+}
+
+
+/* =====================================================
+                    MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .boost-hero h2 {
+        font-size: 28px;
+    }
+
+
+    .progress-header {
+        gap: 15px;
+    }
+
+
+    .tiny-steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .game-heading h2 {
+        font-size: 27px;
+    }
+
+
+    .feeling-buttons {
+        flex-direction: column;
+    }
+
+
+    .feeling-buttons button {
+        width: 100%;
+    }
+
+}
+/* =====================================================
+   🌈 MOODVERSE DASHBOARD DESIGN
+===================================================== */
+
+.dashboard-page {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 10% 20%, #ffe5f3 0%, transparent 25%),
+        radial-gradient(circle at 90% 15%, #e5ddff 0%, transparent 25%),
+        radial-gradient(circle at 50% 90%, #dff8ff 0%, transparent 30%),
+        #fffaff;
+}
+
+
+/* =====================================================
+   FLOATING STICKERS
+===================================================== */
+
+.dashboard-page .floating-stickers {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.dashboard-page .floating-stickers span {
+    position: absolute;
+    font-size: 25px;
+    opacity: 0.35;
+    animation: dashboardFloat 6s ease-in-out infinite;
+}
+
+.dashboard-page .floating-stickers span:nth-child(1) {
+    top: 18%;
+    left: 5%;
+}
+
+.dashboard-page .floating-stickers span:nth-child(2) {
+    top: 30%;
+    right: 6%;
+    animation-delay: 1s;
+}
+
+.dashboard-page .floating-stickers span:nth-child(3) {
+    bottom: 20%;
+    left: 8%;
+    animation-delay: 2s;
+}
+
+.dashboard-page .floating-stickers span:nth-child(4) {
+    bottom: 12%;
+    right: 10%;
+    animation-delay: 3s;
+}
+
+@keyframes dashboardFloat {
+
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(8deg);
+    }
+}
+
+
+/* =====================================================
+   DASHBOARD HEADER
+===================================================== */
+
+.dashboard-page .dashboard-header {
+    position: relative;
+    z-index: 1;
+
+    text-align: center;
+
+    padding: 70px 20px 35px;
+}
+
+.dashboard-page .dashboard-header h2 {
+    font-size: 42px;
+    color: #654b82;
+    margin-bottom: 12px;
+}
+
+.dashboard-page .dashboard-header p {
+    font-size: 17px;
+    color: #887b91;
+}
+
+
+/* =====================================================
+   DASHBOARD GRID
+===================================================== */
+
+.dashboard-page .dashboard {
+    position: relative;
+    z-index: 1;
+
+    width: 88%;
+    max-width: 1100px;
+
+    margin: 20px auto 55px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+
+/* =====================================================
+   DASHBOARD CARDS
+===================================================== */
+
+.dashboard-page .dashboard-card {
+    position: relative;
+
+    min-height: 285px;
+
+    padding: 32px 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.82);
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 15px 40px rgba(113, 83, 145, 0.12);
+
+    backdrop-filter: blur(12px);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.dashboard-page .dashboard-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 22px 45px rgba(113, 83, 145, 0.18);
+}
+
+
+/* =====================================================
+   CARD ICON
+===================================================== */
+
+.dashboard-page .dashboard-card h2 {
+    font-size: 55px;
+
+    margin-bottom: 10px;
+
+    transition: transform 0.3s ease;
+}
+
+.dashboard-page .dashboard-card:hover h2 {
+    transform: scale(1.12) rotate(-3deg);
+}
+
+
+/* =====================================================
+   CARD TITLE
+===================================================== */
+
+.dashboard-page .dashboard-card h3 {
+    font-size: 22px;
+
+    color: #5d496d;
+
+    margin-bottom: 10px;
+}
+
+
+/* =====================================================
+   CARD DESCRIPTION
+===================================================== */
+
+.dashboard-page .dashboard-card p {
+    max-width: 290px;
+
+    color: #85798c;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+
+/* =====================================================
+   DASHBOARD BUTTONS
+===================================================== */
+
+.dashboard-page .dashboard-card button {
+    border: none;
+
+    padding: 12px 23px;
+
+    border-radius: 25px;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #9875cf,
+            #d982c0
+        );
+
+    box-shadow:
+        0 7px 18px rgba(126, 87, 165, 0.22);
+
+    transition: 0.25s ease;
+}
+
+.dashboard-page .dashboard-card button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(126, 87, 165, 0.30);
+}
+
+
+/* =====================================================
+   CARD-SPECIFIC COLORS
+===================================================== */
+
+/* Today's Mood */
+
+.dashboard-page .dashboard-card:nth-child(1) {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 249, 222, 0.95),
+            rgba(255, 241, 249, 0.95)
+        );
+}
+
+
+/* Journal */
+
+.dashboard-page .dashboard-card:nth-child(2) {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(250, 240, 255, 0.95),
+            rgba(239, 237, 255, 0.95)
+        );
+}
+
+
+/* Breathing */
+
+.dashboard-page .dashboard-card:nth-child(3) {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(232, 251, 247, 0.95),
+            rgba(229, 244, 255, 0.95)
+        );
+}
+
+
+/* Music */
+
+.dashboard-page .dashboard-card:nth-child(4) {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 238, 249, 0.95),
+            rgba(255, 245, 226, 0.95)
+        );
+}
+
+
+/* =====================================================
+   AFFIRMATION
+===================================================== */
+
+.dashboard-page .affirmation {
+    position: relative;
+    z-index: 1;
+
+    width: 88%;
+    max-width: 850px;
+
+    margin: 0 auto 65px;
+}
+
+.dashboard-page .affirmation .card {
+    padding: 40px 35px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 239, 249, 0.95),
+            rgba(239, 234, 255, 0.95)
+        );
+
+    box-shadow:
+        0 15px 40px rgba(113, 83, 145, 0.10);
+}
+
+.dashboard-page .affirmation h2 {
+    color: #76539d;
+
+    font-size: 24px;
+
+    margin-bottom: 17px;
+}
+
+.dashboard-page .affirmation p {
+    color: #706477;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   DASHBOARD FOOTER
+===================================================== */
+
+.dashboard-page footer {
+    position: relative;
+    z-index: 1;
+
+    text-align: center;
+
+    padding: 25px;
+
+    color: #91849a;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 750px) {
+
+    .dashboard-page .dashboard {
+        grid-template-columns: 1fr;
+
+        width: 90%;
+    }
+
+    .dashboard-page .dashboard-header {
+        padding-top: 50px;
+    }
+
+    .dashboard-page .dashboard-header h2 {
+        font-size: 32px;
+    }
+
+    .dashboard-page .dashboard-card {
+        min-height: 260px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .dashboard-page .dashboard-header h2 {
+        font-size: 28px;
+    }
+
+    .dashboard-page .dashboard-header p {
+        font-size: 15px;
+    }
+
+    .dashboard-page .dashboard {
+        width: 92%;
+        gap: 18px;
+    }
+
+    .dashboard-page .dashboard-card {
+        padding: 28px 18px;
+        border-radius: 25px;
+    }
+
+    .dashboard-page .dashboard-card h2 {
+        font-size: 48px;
+    }
+
+    .dashboard-page .affirmation {
+        width: 92%;
+    }
+
+    .dashboard-page .affirmation .card {
+        padding: 30px 20px;
+    }
+
+    .dashboard-page .affirmation p {
+        font-size: 16px;
+    }
+
+}
+/* =====================================================
+                    ACHIEVEMENTS
+===================================================== */
+
+.achievements-section {
+    margin: 25px 0;
+    padding: 30px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 12px 30px rgba(100, 80, 120, 0.08);
+}
+
+.achievements-title {
+    text-align: center;
+    margin-bottom: 8px;
+    color: #684f91;
+    font-size: 27px;
+}
+
+.achievements-subtitle {
+    text-align: center;
+    color: #8b8190;
+    margin-bottom: 25px;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.achievement-card {
+    padding: 24px 18px;
+    text-align: center;
+    border-radius: 22px;
+    background: linear-gradient(
+        135deg,
+        #fff5fa,
+        #f3edff
+    );
+    border: 1px solid #eee3f8;
+    transition: 0.25s ease;
+}
+
+.achievement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(120, 90, 150, 0.12);
+}
+
+.achievement-icon {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 13px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    background: #fff;
+    box-shadow: 0 7px 18px rgba(120, 90, 150, 0.1);
+}
+
+.achievement-card h3 {
+    color: #684f91;
+    margin-bottom: 7px;
+    font-size: 18px;
+}
+
+.achievement-card p {
+    color: #8b8190;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* ================= LOCKED ACHIEVEMENT ================= */
+
+.achievement-card.locked {
+    opacity: 0.55;
+    filter: grayscale(0.3);
+}
+
+.achievement-card.locked .achievement-icon {
+    background: #f1edf4;
+}
+
+
+/* ================= UNLOCKED ACHIEVEMENT ================= */
+
+.achievement-card.unlocked {
+    background: linear-gradient(
+        135deg,
+        #fff0b8,
+        #ffd9ec,
+        #e7dcff
+    );
+}
+
+.achievement-card.unlocked .achievement-icon {
+    background: rgba(255,255,255,0.8);
+}
+
+
+/* ================= ACHIEVEMENT BADGE ================= */
+
+.achievement-badge {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: #eadcff;
+    color: #7453a2;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.achievement-card.unlocked .achievement-badge {
+    background: #ffe08a;
+    color: #8a6410;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+
+    .achievements-section {
+        padding: 24px 18px;
+    }
+
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .achievements-title {
+        font-size: 24px;
+    }
+
+}

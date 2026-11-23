@@ -1,0 +1,131 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodVerse | Create Account</title>
+
+    <link rel="stylesheet" href="{% static 'moodverse/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="register-page">
+    <div class="register-card">
+
+        <div class="logo">MoodVerse</div>
+
+        <h1>Create Account</h1>
+
+        <p class="subtitle">
+            Start your journey towards emotional wellness
+        </p>
+
+        <form id="registerForm">
+
+            <div class="input-container">
+                <input type="text" id="fullName" placeholder="Full Name" required>
+            </div>
+
+            <div class="input-container">
+                <input type="email" id="email" placeholder="Email Address" required>
+            </div>
+
+            <div class="input-container">
+                <input type="password" id="password" placeholder="Create Password" required>
+            </div>
+
+            <div class="input-container">
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            </div>
+
+            <div class="terms">
+                <label>
+                    <input type="checkbox" id="terms" required>
+                    I agree to the terms and privacy policy
+                </label>
+            </div>
+
+            <button type="submit" class="register-btn" id="registerBtn">
+                CREATE ACCOUNT
+            </button>
+
+        </form>
+
+        <p id="message"></p>
+
+        <div class="divider">
+            <span>OR</span>
+        </div>
+
+        <button class="google-btn" type="button">
+            Continue with Google
+        </button>
+
+        <p class="login-text">
+            Already have an account?
+            <a href="/login/">Login</a>
+        </p>
+
+    </div>
+</div>
+
+<script>
+document.getElementById("registerForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const fullName = document.getElementById("fullName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    const message = document.getElementById("message");
+
+    if (password !== confirmPassword) {
+        message.textContent = "Passwords do not match!";
+        return;
+    }
+
+    const nameParts = fullName.split(/\s+/);
+    const username = nameParts.join("").toLowerCase() + Date.now().toString().slice(-4);
+
+    try {
+        const response = await fetch("/api/register/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                username: username,
+                email: email,
+                password: password,
+                
+            })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            message.textContent = "Registration successful! Redirecting to login...";
+            message.style.color = "green";
+
+            setTimeout(() => {
+                window.location.href = "/login/";
+            }, 1500);
+        } else {
+            message.textContent = Object.values(data).flat().join(" ");
+            message.style.color = "red";
+        }
+
+    } catch (error) {
+        message.textContent = "Something went wrong. Please try again.";
+        message.style.color = "red";
+        console.error(error);
+    }
+});
+</script>
+
+</body>
+</html>

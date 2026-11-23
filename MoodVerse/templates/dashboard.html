@@ -1,0 +1,842 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MoodVerse Dashboard 💗</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            color: #4b3f55;
+
+            background:
+                radial-gradient(circle at 10% 10%, #ffd6e7 0, transparent 30%),
+                radial-gradient(circle at 90% 20%, #ddd1ff 0, transparent 30%),
+                radial-gradient(circle at 50% 100%, #cdefff 0, transparent 35%),
+                #fff9fc;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            width: 100%;
+            padding: 20px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: rgba(255,255,255,0.72);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.8);
+
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .navbar h1 {
+            color: #8d65d8;
+            font-size: 26px;
+        }
+
+        .navbar nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        .navbar nav a {
+            text-decoration: none;
+            color: #665b70;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .navbar nav a:hover {
+            color: #a15bc7;
+        }
+
+        /* ================= HEADER ================= */
+
+        .welcome {
+            text-align: center;
+            padding: 55px 20px 25px;
+        }
+
+        .welcome h2 {
+            font-size: 38px;
+            color: #684f91;
+            margin-bottom: 10px;
+        }
+
+        .welcome p {
+            color: #8b8190;
+            font-size: 17px;
+        }
+
+        /* ================= MAIN ================= */
+
+        .dashboard-wrapper {
+            width: 90%;
+            max-width: 1050px;
+            margin: auto;
+        }
+
+        /* ================= MOOD HERO ================= */
+
+        .mood-card {
+            position: relative;
+            overflow: hidden;
+
+            padding: 40px;
+
+            border-radius: 32px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff1a8,
+                    #ffd6e8 55%,
+                    #e7d7ff
+                );
+
+            box-shadow:
+                0 18px 45px rgba(135, 94, 160, 0.15);
+
+            margin-bottom: 22px;
+        }
+
+        .mood-card::after {
+            content: "✨";
+
+            position: absolute;
+            right: 35px;
+            top: 25px;
+
+            font-size: 42px;
+            opacity: 0.6;
+        }
+
+        .mood-small {
+            color: #79677e;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .mood-main {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+
+            margin-top: 18px;
+        }
+
+        .mood-emoji {
+            width: 90px;
+            height: 90px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.65);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 52px;
+
+            box-shadow:
+                0 8px 20px rgba(120,90,120,0.1);
+        }
+
+        .mood-main h2 {
+            font-size: 32px;
+            color: #59456f;
+            margin-bottom: 7px;
+        }
+
+        .mood-main p {
+            color: #77687e;
+            line-height: 1.5;
+        }
+
+        .change-btn {
+            margin-top: 22px;
+
+            border: none;
+
+            padding: 12px 22px;
+
+            border-radius: 14px;
+
+            background: #7656c7;
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .change-btn:hover {
+            transform: translateY(-2px);
+            background: #6545b5;
+        }
+        /* ================= STREAK ================= */
+
+        .streak-card {
+            display: flex;
+            
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 25px 30px;
+
+            margin-bottom: 22px;
+
+            border-radius: 25px;
+
+            background: rgba(255,255,255,0.78);
+
+            border: 1px solid rgba(255,255,255,0.9);
+
+            box-shadow:
+                0 12px 30px rgba(100,80,120,0.09);
+        }
+
+        .streak-left {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .fire {
+            font-size: 38px;
+        }
+
+        .streak-card h3 {
+            color: #684f91;
+            margin-bottom: 5px;
+        }
+
+        .streak-card p {
+            color: #8c8290;
+            font-size: 14px;
+        }
+
+        .streak-number {
+            font-size: 30px;
+            font-weight: bold;
+            color: #e77845;
+        }
+
+        /* ================= QUICK CARDS ================= */
+
+        .quick-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 22px;
+        }
+
+        .quick-card {
+            padding: 30px;
+
+            border-radius: 27px;
+
+            background: rgba(255,255,255,0.82);
+
+            border: 1px solid rgba(255,255,255,0.9);
+
+            box-shadow:
+                0 12px 30px rgba(100,80,120,0.08);
+
+            transition: 0.25s;
+        }
+
+        .quick-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 18px 35px rgba(100,80,120,0.13);
+        }
+
+        .quick-icon {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .quick-card h3 {
+            font-size: 21px;
+            color: #684f91;
+            margin-bottom: 8px;
+        }
+
+        .quick-card p {
+            color: #8b8190;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .quick-card a {
+            text-decoration: none;
+        }
+
+        .quick-btn {
+            border: none;
+
+            padding: 11px 18px;
+
+            border-radius: 13px;
+
+            background: #f0e8ff;
+
+            color: #7554a8;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .quick-btn:hover {
+            background: #e2d4ff;
+            transform: translateY(-2px);
+        }
+
+        /* ================= AFFIRMATION ================= */
+
+        .affirmation {
+            margin: 25px 0 45px;
+
+            padding: 35px;
+
+            border-radius: 28px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e9ddff,
+                    #ffe2ef
+                );
+        }
+
+        .affirmation h2 {
+            color: #684f91;
+            margin-bottom: 15px;
+        }
+
+        .affirmation p {
+            color: #75677e;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+
+            padding: 30px;
+
+            color: #938797;
+
+            font-size: 14px;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 18px 20px;
+            }
+
+            .navbar nav {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .welcome {
+                padding-top: 35px;
+            }
+
+            .welcome h2 {
+                font-size: 29px;
+            }
+
+            .mood-card {
+                padding: 28px 22px;
+            }
+
+            .mood-main {
+                align-items: flex-start;
+            }
+
+            .mood-emoji {
+                width: 70px;
+                height: 70px;
+                font-size: 40px;
+                flex-shrink: 0;
+            }
+
+            .mood-main h2 {
+                font-size: 25px;
+            }
+
+            .quick-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .streak-card {
+                padding: 22px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <h1>
+            🌈 MoodVerse
+        </h1>
+
+        <nav>
+
+            <a href="/home/">
+                Home
+            </a>
+
+            <a href="/mood/">
+                Mood
+            </a>
+
+            <a href="/journal/">
+                Journal
+            </a>
+
+            <a href="/analytics/">
+                Analytics
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= WELCOME ================= -->
+
+    <section class="welcome">
+
+        <h2>
+            Welcome back 💕
+        </h2>
+
+        <p>
+            A little space to check in with yourself.
+        </p>
+
+    </section>
+
+
+    <main class="dashboard-wrapper">
+
+
+        <!-- ================= MOOD ================= -->
+
+        <section class="mood-card">
+
+            <div class="mood-small">
+                Today's emotional check-in
+            </div>
+
+            <div class="mood-main">
+
+                <div
+                    class="mood-emoji"
+                    id="dashboardMoodEmoji">
+
+                    😊
+
+                </div>
+
+                <div>
+
+                    <h2 id="dashboardMoodTitle">
+                        Feeling Happy
+                    </h2>
+
+                    <p id="dashboardMoodText">
+                        Keep enjoying the little moments
+                        that are making you smile today. ✨
+                    </p>
+
+                </div>
+
+            </div>
+
+            <button
+                class="change-btn"
+                onclick="window.location.href='/mood/'">
+
+                Change My Mood
+
+            </button>
+
+        </section>
+
+
+        <!-- ================= STREAK ================= -->
+
+        <section class="streak-card">
+
+            <div class="streak-left">
+
+                <div class="fire">
+                    🔥
+                </div>
+
+                <div>
+
+                    <h3>
+                        Your Mood Streak
+                    </h3>
+
+                    <p id="streakMessage">
+                        Keep checking in each day.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div
+                class="streak-number"
+                id="streakCount">
+
+                0 days
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= QUICK ACTIONS ================= -->
+
+        <section class="quick-grid">
+
+
+            <!-- JOURNAL -->
+
+            <div class="quick-card">
+
+                <div class="quick-icon">
+                    📖
+                </div>
+
+                <h3>
+                    My Journal
+                </h3>
+
+                <p>
+                    Write down what's on your mind
+                    and save today's memory.
+                </p>
+
+                <a href="/journal/">
+
+                    <button class="quick-btn">
+                        Write Something →
+                    </button>
+
+                </a>
+
+            </div>
+
+
+            <!-- BREATHING -->
+
+            <div class="quick-card">
+
+                <div class="quick-icon">
+                    🧘
+                </div>
+
+                <h3>
+                    Take a Breather
+                </h3>
+
+                <p>
+                    Give yourself one quiet minute
+                    to slow down and breathe.
+                </p>
+
+                <a href="/breathing/">
+
+                    <button class="quick-btn">
+                        Start Breathing →
+                    </button>
+
+                </a>
+
+            </div>
+
+
+            <!-- CALENDAR -->
+
+            <div class="quick-card">
+
+                <div class="quick-icon">
+                    📅
+                </div>
+
+                <h3>
+                    My Mood Journey
+                </h3>
+
+                <p>
+                    Look back at your moods and
+                    memories throughout the month.
+                </p>
+
+                <a href="/analytics/">
+
+                    <button class="quick-btn">
+                        View My Journey →
+                    </button>
+
+                </a>
+
+            </div>
+
+
+            <!-- MOOD CHECK -->
+
+            <div class="quick-card">
+
+                <div class="quick-icon">
+                    💭
+                </div>
+
+                <h3>
+                    Not Sure How You Feel?
+                </h3>
+
+                <p>
+                    Answer a few simple questions
+                    and let MoodVerse help you check in.
+                </p>
+
+                <a href="/mood-check/">
+
+                    <button class="quick-btn">
+                        Understand My Mood →
+                    </button>
+
+                </a>
+
+            </div>
+
+
+            <!-- ================= ACHIEVEMENTS ================= -->
+
+            <div class="quick-card">
+
+                <div class="quick-icon">
+                    🏆
+                </div>
+
+                <h3>
+                    Achievements
+                </h3>
+
+                <p>
+                    Celebrate your progress and
+                    unlock special MoodVerse badges.
+                </p>
+
+                <a href="/achievements/">
+
+                    <button class="quick-btn">
+                        View Achievements →
+                    </button>
+
+                </a>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ================= AFFIRMATION ================= -->
+
+        <section class="affirmation">
+
+            <h2>
+                ✨ A little reminder for you
+            </h2>
+
+            <p>
+                "You don't have to have everything figured out.
+                Small steps are still progress. 💗"
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        Made with 💕 by MoodVerse
+
+    </footer>
+<script src="{% static 'moodverse/script.js' %}"></script>
+
+
+    <!-- ================= DASHBOARD SCRIPT ================= -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                /* ================= MOOD ================= */
+
+                const savedMood =
+                    localStorage.getItem(
+                        "moodverseMood"
+                    );
+
+
+                const emojiElement =
+                    document.getElementById(
+                        "dashboardMoodEmoji"
+                    );
+
+
+                const titleElement =
+                    document.getElementById(
+                        "dashboardMoodTitle"
+                    );
+
+
+                const textElement =
+                    document.getElementById(
+                        "dashboardMoodText"
+                    );
+
+
+                const moodData = {
+
+                    happy: {
+                        emoji: "😊",
+                        title: "Feeling Happy",
+                        text: "Keep enjoying the little moments that are making you smile today. ✨"
+                    },
+
+                    sad: {
+                        emoji: "😢",
+                        title: "Feeling a Little Low",
+                        text: "Be gentle with yourself today. You don't have to fix everything at once. 💙"
+                    },
+
+                    angry: {
+                        emoji: "😡",
+                        title: "Feeling Frustrated",
+                        text: "Take a pause, breathe slowly, and give yourself some space. ❤️"
+                    },
+
+                    calm: {
+                        emoji: "😌",
+                        title: "Feeling Calm",
+                        text: "Enjoy this peaceful moment and give yourself permission to slow down. 💜"
+                    },
+
+                    excited: {
+                        emoji: "🤩",
+                        title: "Feeling Excited",
+                        text: "You've got some great energy today! Use it for something creative or fun. 🩷"
+                    }
+
+                };
+
+
+                if (
+                    savedMood &&
+                    moodData[savedMood]
+                ) {
+
+                    emojiElement.textContent =
+                        moodData[savedMood].emoji;
+
+                    titleElement.textContent =
+                        moodData[savedMood].title;
+
+                    textElement.textContent =
+                        moodData[savedMood].text;
+
+                }
+
+
+                /* ================= STREAK ================= */
+
+                if (
+                    typeof updateMoodStreak ===
+                    "function"
+                ) 
+                {
+
+                    updateMoodStreak();
+
+                }
+
+
+            }
+        );
+
+    </script>
+
+
+</body>
+</html>

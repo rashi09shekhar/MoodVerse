@@ -1,0 +1,489 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mood Check-In 💭 | MoodVerse</title>
+
+    <link rel="stylesheet" href="{% static 'moodverse/style.css' %}">
+
+</head>
+
+
+<body class="mood-check-page">
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <h1>
+            🌈 MoodVerse
+        </h1>
+
+        <nav>
+
+            <a href="/home/">
+                Home
+            </a>
+
+            <a href="/mood/">
+                Mood
+            </a>
+
+            <a href="/dashboard/">
+                Dashboard
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="check-hero">
+
+        <h2>
+            🤔 Not sure how you feel?
+        </h2>
+
+        <p>
+            That's completely okay. 💗
+            Answer these simple questions and
+            MoodVerse will help you understand
+            what you may be feeling right now.
+        </p>
+
+    </section>
+
+
+
+    <!-- ================= QUESTIONS ================= -->
+
+    <section class="check-container">
+
+        <div class="check-card">
+
+            <form id="moodCheckForm">
+
+
+                <!-- ================= QUESTION 1 ================= -->
+
+                <div class="question">
+
+                    <h3>
+                        1. How is your energy right now?
+                    </h3>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q1"
+                            value="sad"
+                            required>
+                        🔋 Very low
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q1"
+                            value="sad">
+                        🌱 A little low
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q1"
+                            value="calm">
+                        🙂 Normal
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q1"
+                            value="happy">
+                        ⚡ High
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q1"
+                            value="excited">
+                        🚀 Very high
+                    </label>
+
+                </div>
+
+
+
+                <!-- ================= QUESTION 2 ================= -->
+
+                <div class="question">
+
+                    <h3>
+                        2. How does your mind feel?
+                    </h3>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q2"
+                            value="calm"
+                            required>
+                        😌 Peaceful
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q2"
+                            value="happy">
+                        🙂 Good and positive
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q2"
+                            value="sad">
+                        😵 A little overwhelmed
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q2"
+                            value="angry">
+                        😰 Very stressed
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q2"
+                            value="angry">
+                        🤯 Extremely overwhelmed
+                    </label>
+
+                </div>
+
+
+
+                <!-- ================= QUESTION 3 ================= -->
+
+                <div class="question">
+
+                    <h3>
+                        3. What best describes your feelings?
+                    </h3>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q3"
+                            value="happy"
+                            required>
+                        😊 Positive
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q3"
+                            value="calm">
+                        😌 Peaceful
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q3"
+                            value="sad">
+                        😢 Low or emotional
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q3"
+                            value="angry">
+                        😡 Irritated
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q3"
+                            value="excited">
+                        🤩 Excited
+                    </label>
+
+                </div>
+
+
+
+                <!-- ================= QUESTION 4 ================= -->
+
+                <div class="question">
+
+                    <h3>
+                        4. How did your day feel overall?
+                    </h3>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q4"
+                            value="happy"
+                            required>
+                        🌈 Really good
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q4"
+                            value="excited">
+                        ✨ Pretty good
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q4"
+                            value="calm">
+                        😐 Average
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q4"
+                            value="angry">
+                        😕 Difficult
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q4"
+                            value="sad">
+                        🌧️ Very difficult
+                    </label>
+
+                </div>
+
+
+
+                <!-- ================= QUESTION 5 ================= -->
+
+                <div class="question">
+
+                    <h3>
+                        5. How do you feel around other people?
+                    </h3>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q5"
+                            value="happy"
+                            required>
+                        💕 Connected
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q5"
+                            value="calm">
+                        😊 Comfortable
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q5"
+                            value="calm">
+                        😐 Neutral
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q5"
+                            value="angry">
+                        😣 Frustrated
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q5"
+                            value="sad">
+                        😔 I want to be alone
+                    </label>
+
+                </div>
+
+
+
+                <!-- ================= QUESTION 6 ================= -->
+
+                <div class="question">
+
+                    <h3>
+                        6. What does your body want right now?
+                    </h3>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q6"
+                            value="excited"
+                            required>
+                        🥳 Do something fun
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q6"
+                            value="calm">
+                        🧘 Rest and relax
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q6"
+                            value="happy">
+                        🤗 Talk to someone
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q6"
+                            value="sad">
+                        😴 Be alone
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q6"
+                            value="excited">
+                        🚶 Move around
+                    </label>
+
+                </div>
+
+
+
+                <!-- ================= QUESTION 7 ================= -->
+
+                <div class="question">
+
+                    <h3>
+                        7. Which word feels closest to you right now?
+                    </h3>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q7"
+                            value="happy"
+                            required>
+                        ☀️ Joyful
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q7"
+                            value="calm">
+                        🌿 Peaceful
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q7"
+                            value="sad">
+                        🌧️ Heavy
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q7"
+                            value="angry">
+                        🔥 Frustrated
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="q7"
+                            value="excited">
+                        ✨ Energetic
+                    </label>
+
+                </div>
+
+
+
+                <!-- ================= SUBMIT ================= -->
+
+                <button
+                    type="submit"
+                    class="check-btn">
+
+                    ✨ Understand My Mood
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- ================= RESULT ================= -->
+
+            <div
+                id="moodResult"
+                class="mood-result">
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        Made with 💕 by MoodVerse
+
+    </footer>
+
+<script src="{% static 'moodverse/script.js' %}?v=2"></script>
+</body>
+
+</html>

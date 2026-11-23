@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Breathing Space 🧘</title>
+
+<link rel="stylesheet" href="{% static 'moodverse/style.css' %}">
+
+</head>
+
+
+<body class="breathing-page">
+
+
+<div class="floating-stickers">
+
+<span>🌸</span>
+<span>✨</span>
+<span>☁️</span>
+<span>💗</span>
+
+</div>
+
+
+<header class="navbar">
+
+<h1>
+🌈 MoodVerse
+</h1>
+
+
+<nav>
+
+<a href="/dashboard/">
+Dashboard
+</a>
+
+<a href="/journal/">
+Journal
+</a>
+
+</nav>
+
+</header>
+
+
+
+<section class="breathing-container">
+
+
+<div class="breathing-card">
+
+
+<h2>
+🧘 One Minute Calm
+</h2>
+
+
+<p>
+Take a moment for yourself.<br>
+Focus on your breathing and relax your mind.
+</p>
+
+
+
+<div
+    class="breathing-circle"
+    id="breathingCircle">
+
+    <span id="breathingText">
+        Ready
+    </span>
+
+    <strong id="breathingTimer">
+        60
+    </strong>
+
+</div>
+
+
+
+<h3>
+Follow this rhythm:
+</h3>
+
+
+<div class="steps">
+
+<p>
+🌬️ Inhale for 4 seconds
+</p>
+
+<p>
+✨ Hold for 4 seconds
+</p>
+
+<p>
+🍃 Exhale for 6 seconds
+</p>
+
+</div>
+
+
+
+<button
+    id="startBreathingButton"
+    type="button">
+
+    Start Session 💗
+
+</button>
+
+
+<p
+    id="breathingMessage"
+    class="breathing-message">
+
+</p>
+
+
+</div>
+
+</section>
+
+
+
+<footer>
+
+Your mind deserves a peaceful moment 💕
+
+</footer>
+
+
+<script src="{% static 'moodverse/script.js' %}"></script>
+
+</body>
+
+</html>

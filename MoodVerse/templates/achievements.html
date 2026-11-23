@@ -1,0 +1,1065 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MoodVerse Achievements 🏆</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            color: #4b3f55;
+
+            background:
+                radial-gradient(circle at 10% 10%, #ffd6e7 0, transparent 30%),
+                radial-gradient(circle at 90% 20%, #ddd1ff 0, transparent 30%),
+                radial-gradient(circle at 50% 100%, #cdefff 0, transparent 35%),
+                #fff9fc;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            width: 100%;
+            padding: 20px 7%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: rgba(255,255,255,0.75);
+
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.8);
+
+            position: sticky;
+            top: 0;
+
+            z-index: 10;
+        }
+
+
+        .navbar h1 {
+            color: #8d65d8;
+            font-size: 26px;
+        }
+
+
+        .navbar nav {
+            display: flex;
+            gap: 25px;
+        }
+
+
+        .navbar nav a {
+            text-decoration: none;
+            color: #665b70;
+            font-weight: 600;
+        }
+
+
+        .navbar nav a:hover {
+            color: #a15bc7;
+        }
+
+
+        /* ================= HEADER ================= */
+
+        .achievements-header {
+            text-align: center;
+            padding: 55px 20px 35px;
+        }
+
+
+        .achievements-header h2 {
+            font-size: 38px;
+            color: #684f91;
+            margin-bottom: 10px;
+        }
+
+
+        .achievements-header p {
+            color: #8b8190;
+            font-size: 17px;
+        }
+
+
+        /* ================= CONTAINER ================= */
+
+        .achievements-container {
+            width: 90%;
+            max-width: 1050px;
+            margin: auto;
+        }
+
+
+        /* ================= PROGRESS ================= */
+
+        .achievement-progress {
+            padding: 25px 30px;
+            margin-bottom: 25px;
+
+            border-radius: 25px;
+
+            background: rgba(255,255,255,0.82);
+
+            box-shadow:
+                0 12px 30px rgba(100,80,120,0.09);
+
+            text-align: center;
+        }
+
+
+        .achievement-progress h3 {
+            color: #684f91;
+            margin-bottom: 8px;
+        }
+
+
+        .achievement-progress p {
+            color: #8b8190;
+            margin-bottom: 15px;
+        }
+
+
+        .progress-bar {
+            width: 100%;
+            height: 14px;
+
+            background: #eee7f5;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+        }
+
+
+        .progress-fill {
+            width: 0%;
+
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #a77be8,
+                    #ff9fbd
+                );
+
+            border-radius: 20px;
+
+            transition: width 0.5s ease;
+        }
+
+
+        /* ================= ACHIEVEMENT GRID ================= */
+
+        .achievement-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+
+            padding-bottom: 40px;
+        }
+
+
+        /* ================= ACHIEVEMENT CARD ================= */
+
+        .achievement-card {
+            padding: 30px;
+
+            border-radius: 27px;
+
+            background: rgba(255,255,255,0.84);
+
+            border: 1px solid rgba(255,255,255,0.9);
+
+            box-shadow:
+                0 12px 30px rgba(100,80,120,0.08);
+
+            text-align: center;
+
+            transition: 0.25s;
+        }
+
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 18px 35px rgba(100,80,120,0.13);
+        }
+
+
+        /* ================= ICON ================= */
+
+        .achievement-icon {
+            width: 80px;
+            height: 80px;
+
+            margin: 0 auto 18px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 42px;
+
+            background: #f1e9ff;
+        }
+
+
+        .achievement-card h3 {
+            color: #684f91;
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+
+
+        .achievement-card p {
+            color: #8b8190;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+
+        /* ================= LOCKED ================= */
+
+        .achievement-card.locked {
+            opacity: 0.55;
+            filter: grayscale(0.5);
+        }
+
+
+        .achievement-card.locked .achievement-icon {
+            background: #eeeaf2;
+        }
+
+
+        .lock-text {
+            display: inline-block;
+
+            margin-top: 15px;
+
+            padding: 6px 12px;
+
+            border-radius: 20px;
+
+            background: #f0edf3;
+
+            color: #8d8490;
+
+            font-size: 12px;
+
+            font-weight: bold;
+        }
+
+
+        /* ================= UNLOCKED ================= */
+
+        .achievement-card.unlocked {
+            border: 2px solid #e5c9ff;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #fff,
+                    #fff5fc
+                );
+        }
+
+
+        .achievement-card.unlocked .achievement-icon {
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffe5f0,
+                    #e8dcff
+                );
+        }
+
+
+        .unlocked-text {
+            display: inline-block;
+
+            margin-top: 15px;
+
+            padding: 6px 12px;
+
+            border-radius: 20px;
+
+            background: #e9dcff;
+
+            color: #7554a8;
+
+            font-size: 12px;
+
+            font-weight: bold;
+        }
+
+
+        /* ================= BACK BUTTON ================= */
+
+        .back-section {
+            text-align: center;
+            padding-bottom: 45px;
+        }
+
+
+        .back-button {
+            display: inline-block;
+
+            padding: 12px 22px;
+
+            border-radius: 14px;
+
+            background: #7656c7;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+
+        .back-button:hover {
+            background: #6545b5;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+
+            padding: 30px;
+
+            color: #938797;
+
+            font-size: 14px;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 800px) {
+
+            .achievement-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 550px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 18px 20px;
+            }
+
+
+            .navbar nav {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+
+            .achievements-header {
+                padding-top: 35px;
+            }
+
+
+            .achievements-header h2 {
+                font-size: 29px;
+            }
+
+
+            .achievement-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <h1>
+            🌈 MoodVerse
+        </h1>
+
+        <nav>
+
+            <a href="/home/">
+                Home
+            </a>
+
+            <a href="/dashboard/">
+                Dashboard
+            </a>
+
+            <a href="/mood/">
+                Mood
+            </a>
+
+            <a href="/journal/">
+                Journal
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <section class="achievements-header">
+
+        <h2>
+            🏆 Your Achievements
+        </h2>
+
+        <p>
+            Every small step deserves to be celebrated. 💗
+        </p>
+
+    </section>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="achievements-container">
+
+
+        <!-- ================= PROGRESS ================= -->
+
+        <section class="achievement-progress">
+
+            <h3>
+                Your Progress 🌱
+            </h3>
+
+            <p id="achievementProgressText">
+                0 of 8 achievements unlocked
+            </p>
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress-fill"
+                    id="achievementProgress">
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ACHIEVEMENTS ================= -->
+
+        <section
+            class="achievement-grid"
+            id="achievementGrid">
+
+
+            <!-- FIRST CHECK-IN -->
+
+            <div
+                class="achievement-card"
+                id="achievement-first">
+
+                <div class="achievement-icon">
+                    🌱
+                </div>
+
+                <h3>
+                    First Check-In
+                </h3>
+
+                <p>
+                    Log your first mood and begin
+                    your MoodVerse journey.
+                </p>
+
+                <span class="lock-text">
+                    🔒 Locked
+                </span>
+
+            </div>
+
+
+            <!-- 3 DAY STREAK -->
+
+            <div
+                class="achievement-card"
+                id="achievement-3">
+
+                <div class="achievement-icon">
+                    🔥
+                </div>
+
+                <h3>
+                    3 Day Streak
+                </h3>
+
+                <p>
+                    Check in with your mood
+                    for 3 days in a row.
+                </p>
+
+                <span class="lock-text">
+                    🔒 Locked
+                </span>
+
+            </div>
+
+
+            <!-- 7 DAY STREAK -->
+
+            <div
+                class="achievement-card"
+                id="achievement-7">
+
+                <div class="achievement-icon">
+                    🏆
+                </div>
+
+                <h3>
+                    7 Day Streak
+                </h3>
+
+                <p>
+                    Keep checking in for
+                    an entire week.
+                </p>
+
+                <span class="lock-text">
+                    🔒 Locked
+                </span>
+
+            </div>
+
+
+            <!-- FIRST MEMORY -->
+
+            <div
+                class="achievement-card"
+                id="achievement-memory">
+
+                <div class="achievement-icon">
+                    📖
+                </div>
+
+                <h3>
+                    First Memory
+                </h3>
+
+                <p>
+                    Save your first journal
+                    memory.
+                </p>
+
+                <span class="lock-text">
+                    🔒 Locked
+                </span>
+
+            </div>
+
+
+            <!-- MOOD EXPLORER -->
+
+            <div
+                class="achievement-card"
+                id="achievement-explorer">
+
+                <div class="achievement-icon">
+                    🌈
+                </div>
+
+                <h3>
+                    Mood Explorer
+                </h3>
+
+                <p>
+                    Experience all five moods
+                    in your MoodVerse journey.
+                </p>
+
+                <span class="lock-text">
+                    🔒 Locked
+                </span>
+
+            </div>
+
+
+            <!-- 7 MEMORIES -->
+
+            <div
+                class="achievement-card"
+                id="achievement-memories">
+
+                <div class="achievement-icon">
+                    💗
+                </div>
+
+                <h3>
+                    7 Memories
+                </h3>
+
+                <p>
+                    Save seven journal entries
+                    and keep expressing yourself.
+                </p>
+
+                <span class="lock-text">
+                    🔒 Locked
+                </span>
+
+            </div>
+
+
+            <!-- 30 DAY -->
+
+            <div
+                class="achievement-card"
+                id="achievement-30">
+
+                <div class="achievement-icon">
+                    👑
+                </div>
+
+                <h3>
+                    30 Day Streak
+                </h3>
+
+                <p>
+                    Check in consistently for
+                    thirty days.
+                </p>
+
+                <span class="lock-text">
+                    🔒 Locked
+                </span>
+
+            </div>
+
+
+            <!-- JOURNEY BEGIN -->
+
+            <div
+                class="achievement-card"
+                id="achievement-journey">
+
+                <div class="achievement-icon">
+                    ✨
+                </div>
+
+                <h3>
+                    Keep Going
+                </h3>
+
+                <p>
+                    Visit your MoodVerse journey
+                    and keep exploring yourself.
+                </p>
+
+                <span class="lock-text">
+                    🔒 Locked
+                </span>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ================= BACK ================= -->
+
+        <section class="back-section">
+
+            <a
+                href="/dashboard/"
+                class="back-button">
+
+                ← Back to Dashboard
+
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+    <footer>
+
+        Made with 💕 by MoodVerse
+
+    </footer>
+
+
+    <!-- ================= ACHIEVEMENT SCRIPT ================= -->
+
+    <script>
+
+        function getMoodHistory() {
+
+            return JSON.parse(
+                localStorage.getItem(
+                    "moodverseMoodHistory"
+                )
+            ) || {};
+
+        }
+
+
+        function getJournalHistory() {
+
+            return JSON.parse(
+                localStorage.getItem(
+                    "moodverseJournalHistory"
+                )
+            ) || {};
+
+        }
+
+
+        function calculateStreak() {
+
+            const moodHistory =
+                getMoodHistory();
+
+            let streak = 0;
+
+            let currentDate =
+                new Date();
+
+
+            while (true) {
+
+                const dateKey =
+                    currentDate
+                        .toISOString()
+                        .split("T")[0];
+
+
+                if (moodHistory[dateKey]) {
+
+                    streak++;
+
+                    currentDate.setDate(
+                        currentDate.getDate() - 1
+                    );
+
+                }
+
+                else {
+
+                    break;
+
+                }
+
+            }
+
+
+            return streak;
+
+        }
+
+
+        function unlockAchievement(id) {
+
+            const card =
+                document.getElementById(id);
+
+
+            if (!card) {
+                return;
+            }
+
+
+            card.classList.remove(
+                "locked"
+            );
+
+
+            card.classList.add(
+                "unlocked"
+            );
+
+
+            const status =
+                card.querySelector(
+                    "span"
+                );
+
+
+            if (status) {
+
+                status.className =
+                    "unlocked-text";
+
+                status.textContent =
+                    "✓ Unlocked";
+
+            }
+
+        }
+
+
+        function checkAchievements() {
+
+            const moodHistory =
+                getMoodHistory();
+
+
+            const journalHistory =
+                getJournalHistory();
+
+
+            let unlocked = 0;
+
+
+            /* ================= FIRST MOOD ================= */
+
+            const moodDates =
+                Object.keys(
+                    moodHistory
+                );
+
+
+            if (moodDates.length >= 1) {
+
+                unlockAchievement(
+                    "achievement-first"
+                );
+
+                unlocked++;
+
+            }
+
+
+            /* ================= STREAK ================= */
+
+            const streak =
+                calculateStreak();
+
+
+            if (streak >= 3) {
+
+                unlockAchievement(
+                    "achievement-3"
+                );
+
+                unlocked++;
+
+            }
+
+
+            if (streak >= 7) {
+
+                unlockAchievement(
+                    "achievement-7"
+                );
+
+                unlocked++;
+
+            }
+
+
+            if (streak >= 30) {
+
+                unlockAchievement(
+                    "achievement-30"
+                );
+
+                unlocked++;
+
+            }
+
+
+            /* ================= JOURNAL ================= */
+
+            let totalMemories = 0;
+
+
+            Object.values(
+                journalHistory
+            ).forEach(
+                function(day) {
+
+                    if (
+                        Array.isArray(day)
+                    ) {
+
+                        totalMemories +=
+                            day.length;
+
+                    }
+
+                }
+            );
+
+
+            if (totalMemories >= 1) {
+
+                unlockAchievement(
+                    "achievement-memory"
+                );
+
+                unlocked++;
+
+            }
+
+
+            if (totalMemories >= 7) {
+
+                unlockAchievement(
+                    "achievement-memories"
+                );
+
+                unlocked++;
+
+            }
+
+
+            /* ================= MOOD EXPLORER ================= */
+
+            const moods =
+                new Set(
+                    Object.values(
+                        moodHistory
+                    )
+                );
+
+
+            const allMoods = [
+                "happy",
+                "sad",
+                "angry",
+                "calm",
+                "excited"
+            ];
+
+
+            const exploredAll =
+                allMoods.every(
+                    function(mood) {
+
+                        return moods.has(
+                            mood
+                        );
+
+                    }
+                );
+
+
+            if (exploredAll) {
+
+                unlockAchievement(
+                    "achievement-explorer"
+                );
+
+                unlocked++;
+
+            }
+
+
+            /* ================= JOURNEY ================= */
+
+            if (
+                moodDates.length >= 5
+            ) {
+
+                unlockAchievement(
+                    "achievement-journey"
+                );
+
+                unlocked++;
+
+            }
+
+
+            /* ================= PROGRESS ================= */
+
+            const totalAchievements = 8;
+
+
+            const percentage =
+                (
+                    unlocked /
+                    totalAchievements
+                ) * 100;
+
+
+            document.getElementById(
+                "achievementProgress"
+            ).style.width =
+                percentage + "%";
+
+
+            document.getElementById(
+                "achievementProgressText"
+            ).textContent =
+                unlocked +
+                " of " +
+                totalAchievements +
+                " achievements unlocked";
+
+        }
+
+
+        /* ================= START ================= */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function() {
+
+                checkAchievements();
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

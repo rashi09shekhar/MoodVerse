@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodVerse | Login</title>
+    <link rel="stylesheet" href="{% static 'moodverse/style.css' %}">
+</head>
+
+<body>
+
+<div class="login-page">
+    <div class="login-card">
+
+        <div class="logo">
+            MoodVerse
+        </div>
+
+        <h1>Welcome Back</h1>
+
+        <p class="subtitle">
+            Your personal space for emotions and thoughts
+        </p>
+
+        <form id="loginForm">
+
+            <div class="input-container">
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Email Address"
+                    required
+                >
+            </div>
+
+            <div class="input-container">
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Password"
+                    required
+                >
+            </div>
+
+            <div class="options">
+                <label>
+                    <input type="checkbox" id="rememberMe">
+                    Remember me
+                </label>
+
+                <a href="#">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="login-btn">
+                LOGIN
+            </button>
+
+            <p id="loginMessage"></p>
+
+        </form>
+
+        <div class="divider">
+            <span>OR</span>
+        </div>
+
+        <button class="google-btn" type="button">
+            Continue with Google
+        </button>
+
+        <p class="register-text">
+            New to MoodVerse?
+            <a href="/register/">Create Account</a>
+        </p>
+
+    </div>
+</div>
+
+<script src="{% static 'moodverse/script.js' %}"></script>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const message = document.getElementById("loginMessage");
+
+    try {
+        const response = await fetch("/api/login/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("username", data.username);
+
+            window.location.href = "/dashboard/";
+        } else {
+            message.textContent = data.error || "Login failed. Please check your details.";
+        }
+
+    } catch (error) {
+        message.textContent = "Unable to connect to the server. Please try again.";
+        console.error(error);
+    }
+});
+</script>
+
+</body>
+</html>

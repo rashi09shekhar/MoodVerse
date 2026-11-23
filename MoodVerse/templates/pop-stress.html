@@ -1,0 +1,198 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Pop the Stress 🎈 | MoodVerse</title>
+
+    <link rel="stylesheet" href="{% static 'moodverse/pop-stress.css' %}">
+
+    
+
+</head>
+
+
+<body class="pop-stress-page">
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <h1>
+            🌈 MoodVerse
+        </h1>
+
+        <nav>
+
+            <a href="/home/">
+                Home
+            </a>
+
+            <a href="/mood/">
+                Mood
+            </a>
+
+            <a href="/dashboard/">
+                Dashboard
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ================= GAME INTRO ================= -->
+
+    <section class="game-intro">
+
+        <div class="game-icon">
+            🎈
+        </div>
+
+        <h2>
+            Pop the Stress
+        </h2>
+
+        <p>
+            Feeling stressed or overwhelmed?
+            Pop some bubbles and let it out. 💗
+        </p>
+
+    </section>
+
+
+
+    <!-- ================= GAME ================= -->
+
+    <main class="stress-game-container">
+
+
+        <div class="game-info">
+
+            <div class="info-box">
+
+                <span>
+                    ⭐ Score
+                </span>
+
+                <strong id="score">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <span>
+                    ⏱️ Time
+                </span>
+
+                <strong id="timer">
+                    20
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- GAME AREA -->
+
+        <div
+            id="gameArea"
+            class="game-area"
+        >
+
+            <div
+                id="startMessage"
+                class="start-message"
+            >
+
+                <div>
+                    🎈
+                </div>
+
+                <h3>
+                    Ready to let go?
+                </h3>
+
+                <p>
+                    Click the bubbles as quickly
+                    as you can!
+                </p>
+
+                <button
+                    id="startButton"
+                    type="button"
+                >
+                    🌸 Start Game
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= RESULT ================= -->
+
+        <div
+            id="gameResult"
+            class="game-result"
+        >
+
+            <div class="result-big-icon">
+                🌸
+            </div>
+
+            <h2>
+                You did it!
+            </h2>
+
+            <p id="resultMessage">
+                Great job!
+            </p>
+
+            <button
+                id="restartButton"
+                type="button"
+            >
+                🔄 Play Again
+            </button>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        Made with 💕 by MoodVerse
+
+    </footer>
+
+
+
+    <script src="{% static 'moodverse/script.js' %}"></script>
+
+    <script src="{% static 'moodverse/pop-stress.js' %}"></script>
+
+</body>
+
+</html>
